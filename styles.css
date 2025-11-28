@@ -3876,7 +3876,7 @@ input, textarea {
     display: none;
     position: fixed;
     top: 15px;
-    right: 20px;
+    left: 20px;
     z-index: 10001;
     background: transparent;
     border: none;
@@ -4020,8 +4020,8 @@ input, textarea {
 
 /* RTL Support */
 [dir="rtl"] .mobile-menu-btn {
-    right: auto;
     left: 20px;
+    right: auto;
 }
 
 [dir="rtl"] .mobile-menu-container {
