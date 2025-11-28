@@ -1,4 +1,8 @@
 /* Reset and Base Styles */
+:root {
+    --navbar-height: 60px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +15,7 @@ body {
     color: #333;
     direction: rtl;
     overflow-x: hidden;
+    padding-top: var(--navbar-height);
 }
 
 .container {
@@ -55,11 +60,14 @@ body {
     color: white;
     padding: 8px 0;
     box-shadow: 0 10px 30px rgba(0, 166, 106, 0.3);
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     z-index: 100;
     animation: fadeInUp 0.8s ease-out;
-    min-height: auto;
+    min-height: var(--navbar-height);
+    height: var(--navbar-height);
 }
 
 .header-container {
@@ -3759,5 +3767,19 @@ body.menu-open {
     .lightbox-counter {
         font-size: 11px;
         padding: 6px 12px;
+    }
+}
+
+
+/* Mobile Navbar Height Adjustment */
+@media (max-width: 480px) {
+    :root {
+        --navbar-height: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 56px;
     }
 }
