@@ -554,113 +554,132 @@ class ImageCarousel {
    MOBILE MENU FUNCTIONALITY
    ============================================ */
 
-// NEW SIMPLIFIED MOBILE MENU - VANILLA JAVASCRIPT
-// This is a complete rewrite with simpler logic and better debugging
+// BULLETPROOF MOBILE MENU - FINAL VERSION
+// This uses inline styles to override any CSS conflicts
 function initMobileMenu() {
-    console.log('=== MOBILE MENU INITIALIZATION ===');
+    console.log('=== BULLETPROOF MOBILE MENU ===');
     
-    // Get DOM elements
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const closeBtn = document.getElementById('mobileMenuClose');
+    // Get elements
+    const toggle = document.getElementById('mobileMenuToggle');
     const menu = document.getElementById('mobileMenu');
-    const navLinks = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
+    const close = document.getElementById('mobileMenuClose');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const links = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
     
-    // Debug: Log what we found
-    console.log('Toggle Button:', toggleBtn);
-    console.log('Close Button:', closeBtn);
-    console.log('Menu:', menu);
-    console.log('Nav Links:', navLinks.length);
+    console.log('Toggle:', !!toggle, 'Menu:', !!menu, 'Close:', !!close, 'Overlay:', !!overlay);
     
-    // Check if elements exist
-    if (!toggleBtn || !menu) {
-        console.error('ERROR: Mobile menu elements not found!');
+    if (!toggle || !menu) {
+        console.error('ERROR: Required elements missing!');
         return;
     }
     
-    // Create overlay if it doesn't exist
-    let overlay = document.querySelector('.mobile-menu-overlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'mobile-menu-overlay';
-        document.body.appendChild(overlay);
-        console.log('Overlay created');
+    // Set initial inline styles on menu to ensure visibility
+    menu.style.position = 'fixed';
+    menu.style.top = '0';
+    menu.style.right = '-100%';
+    menu.style.width = '100%';
+    menu.style.maxWidth = '85vw';
+    menu.style.height = '100vh';
+    menu.style.background = 'linear-gradient(135deg, #00a66a 0%, #00d084 100%)';
+    menu.style.zIndex = '9999';
+    menu.style.transition = 'right 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    menu.style.overflowY = 'auto';
+    menu.style.boxShadow = '-2px 0 10px rgba(0, 0, 0, 0.3)';
+    menu.style.paddingTop = '0';
+    menu.style.display = 'block'; // Force display
+    
+    console.log('Menu inline styles set');
+    
+    // Create or find overlay
+    let backdropOverlay = overlay;
+    if (!backdropOverlay) {
+        backdropOverlay = document.createElement('div');
+        backdropOverlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(backdropOverlay);
     }
     
-    // Function to open menu
+    // Set overlay inline styles
+    backdropOverlay.style.position = 'fixed';
+    backdropOverlay.style.top = '0';
+    backdropOverlay.style.left = '0';
+    backdropOverlay.style.width = '100%';
+    backdropOverlay.style.height = '100%';
+    backdropOverlay.style.background = 'rgba(0, 0, 0, 0)';
+    backdropOverlay.style.zIndex = '9998';
+    backdropOverlay.style.transition = 'background 0.4s ease';
+    backdropOverlay.style.pointerEvents = 'none';
+    backdropOverlay.style.display = 'block';
+    
+    console.log('Overlay inline styles set');
+    
+    // Functions
     function openMenu() {
-        console.log('Opening menu...');
-        menu.classList.add('show');
-        toggleBtn.classList.add('active');
-        overlay.classList.add('show');
+        console.log('>>> OPENING MENU');
+        menu.style.right = '0';
+        backdropOverlay.style.background = 'rgba(0, 0, 0, 0.5)';
+        backdropOverlay.style.pointerEvents = 'auto';
+        toggle.classList.add('active');
         document.body.style.overflow = 'hidden';
-        console.log('Menu opened');
+        console.log('Menu opened - right:', menu.style.right);
     }
     
-    // Function to close menu
     function closeMenu() {
-        console.log('Closing menu...');
-        menu.classList.remove('show');
-        toggleBtn.classList.remove('active');
-        overlay.classList.remove('show');
+        console.log('>>> CLOSING MENU');
+        menu.style.right = '-100%';
+        backdropOverlay.style.background = 'rgba(0, 0, 0, 0)';
+        backdropOverlay.style.pointerEvents = 'none';
+        toggle.classList.remove('active');
         document.body.style.overflow = '';
-        console.log('Menu closed');
+        console.log('Menu closed - right:', menu.style.right);
     }
     
-    // Function to toggle menu
     function toggleMenu(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('Toggle clicked');
+        console.log('TOGGLE CLICKED');
         
-        if (menu.classList.contains('show')) {
+        if (menu.style.right === '0' || menu.style.right === '0px') {
             closeMenu();
         } else {
             openMenu();
         }
     }
     
-    // Add click listener to toggle button
-    toggleBtn.addEventListener('click', toggleMenu);
-    console.log('Toggle button listener added');
+    // Event listeners
+    toggle.addEventListener('click', toggleMenu);
+    console.log('Toggle listener added');
     
-    // Add click listener to close button
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeMenu);
-        console.log('Close button listener added');
+    if (close) {
+        close.addEventListener('click', closeMenu);
+        console.log('Close listener added');
     }
     
-    // Add click listener to overlay
-    overlay.addEventListener('click', closeMenu);
+    backdropOverlay.addEventListener('click', closeMenu);
     console.log('Overlay listener added');
     
-    // Add click listeners to nav links
-    navLinks.forEach((link, index) => {
-        link.addEventListener('click', function() {
-            console.log('Nav link clicked:', index);
+    links.forEach((link, i) => {
+        link.addEventListener('click', () => {
+            console.log('Link', i, 'clicked');
             closeMenu();
         });
     });
-    console.log('Nav link listeners added');
+    console.log('Link listeners added');
     
-    // Close menu on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && menu.classList.contains('show')) {
-            console.log('Escape key pressed');
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && (menu.style.right === '0' || menu.style.right === '0px')) {
             closeMenu();
         }
     });
-    console.log('Escape key listener added');
     
-    // Close menu on window resize (when going from mobile to desktop)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && menu.classList.contains('show')) {
-            console.log('Window resized to desktop, closing menu');
+    // Resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
             closeMenu();
         }
     });
-    console.log('Resize listener added');
     
-    console.log('=== MOBILE MENU READY ===');
+    console.log('=== MENU READY ===');
 }
 
 // Update mobile menu text when language changes
