@@ -1605,3 +1605,102 @@ body {
     width: 80px !important;
     height: 80px !important;
 }
+
+
+/* Blog page navigation styling */
+.nav {
+    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 10px 30px rgba(0, 166, 106, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    gap: 20px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-logo img.logo {
+    width: 60px !important;
+    height: 90px !important;
+    max-width: 60px !important;
+    max-height: 90px !important;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-main {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    color: white;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.phone-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.phone-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
