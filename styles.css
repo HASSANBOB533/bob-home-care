@@ -3208,22 +3208,22 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /* Modern Sliding Menu from Left */
 .mobile-menu {
     position: fixed;
-    left: -100%;
+    right: -100%;
     top: 0;
     width: 85%;
     max-width: 320px;
     height: 100vh;
     background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.2);
     z-index: 999;
-    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: 60px;
 }
 
 .mobile-menu.active {
-    left: 0;
+    right: 0;
 }
 
 .mobile-menu-overlay {
@@ -3246,7 +3246,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .mobile-menu-header {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 15px 20px;
     border-bottom: 1px solid #e0e0e0;
     position: sticky;

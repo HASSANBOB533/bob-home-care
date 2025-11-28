@@ -1005,7 +1005,7 @@ document.addEventListener('keydown', function(e) {
         menuBtn.style.display = 'block';
       } else {
         menuBtn.style.display = 'none';
-        mobileMenu.style.left = '-100%';
+        mobileMenu.style.right = '-100%';
         overlay.style.display = 'none';
       }
     }
@@ -1017,7 +1017,7 @@ document.addEventListener('keydown', function(e) {
     menuBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      mobileMenu.style.left = '0';
+      mobileMenu.style.right = '0';
       overlay.style.display = 'block';
       console.log('✓ Menu opened');
     });
@@ -1025,21 +1025,21 @@ document.addEventListener('keydown', function(e) {
     // Close menu
     closeBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      mobileMenu.style.left = '-100%';
+      mobileMenu.style.right = '-100%';
       overlay.style.display = 'none';
       console.log('✓ Menu closed');
     });
     
     // Close on overlay click
     overlay.addEventListener('click', function() {
-      mobileMenu.style.left = '-100%';
+      mobileMenu.style.right = '-100%';
       overlay.style.display = 'none';
     });
     
     // Close on link click
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', function() {
-        mobileMenu.style.left = '-100%';
+        mobileMenu.style.right = '-100%';
         overlay.style.display = 'none';
       });
     });
@@ -1047,7 +1047,7 @@ document.addEventListener('keydown', function(e) {
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        mobileMenu.style.left = '-100%';
+        mobileMenu.style.right = '-100%';
         overlay.style.display = 'none';
       }
     });
