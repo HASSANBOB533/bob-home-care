@@ -241,9 +241,20 @@ function initFormSubmission() {
             const name = nameInput.value.trim();
             const phone = phoneInput.value.trim();
             const email = emailInput.value.trim();
-            const service = serviceSelect.value;
+            
+            // For select elements, get the selected option's value
+            // If the selected index is 0 (placeholder), the value will be empty
+            let service = serviceSelect.value;
+            if (serviceSelect.selectedIndex > 0) {
+                service = serviceSelect.options[serviceSelect.selectedIndex].value;
+            }
+            
+            let time = timeSelect.value;
+            if (timeSelect.selectedIndex > 0) {
+                time = timeSelect.options[timeSelect.selectedIndex].value;
+            }
+            
             const date = dateInput.value;
-            const time = timeSelect.value;
             const address = addressInput.value.trim();
             const notes = notesTextarea.value.trim();
             
