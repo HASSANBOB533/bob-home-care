@@ -237,47 +237,39 @@ function initFormSubmission() {
             const addressInput = bookingForm.querySelector('input[name="address"]');
             const notesTextarea = bookingForm.querySelector('textarea[name="notes"]');
             
-            // Get the selected option text to find the value
-            let serviceValue = serviceSelect.value;
-            let timeValue = timeSelect.value;
-            
-            // If select values are empty, try to get from selected option
-            if (!serviceValue && serviceSelect.selectedIndex > 0) {
-                serviceValue = serviceSelect.options[serviceSelect.selectedIndex].value || 'airbnb';
-            }
-            if (!timeValue && timeSelect.selectedIndex > 0) {
-                timeValue = timeSelect.options[timeSelect.selectedIndex].value || 'morning';
-            }
-            
-            // Create data object from direct element access
-            const data = {
-                name: nameInput.value.trim(),
-                phone: phoneInput.value.trim(),
-                email: emailInput.value.trim(),
-                service: serviceValue,
-                date: dateInput.value,
-                time: timeValue,
-                address: addressInput.value.trim(),
-                notes: notesTextarea.value.trim()
-            };
+            // Get values directly from elements
+            const name = nameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const email = emailInput.value.trim();
+            const service = serviceSelect.value;
+            const date = dateInput.value;
+            const time = timeSelect.value;
+            const address = addressInput.value.trim();
+            const notes = notesTextarea.value.trim();
             
             // Debug: Log form data
-            console.log('Form data:', data);
-            console.log('Service select value:', serviceValue);
-            console.log('Time select value:', timeValue);
-            console.log('Service selectedIndex:', serviceSelect.selectedIndex);
-            console.log('Time selectedIndex:', timeSelect.selectedIndex);
+            console.log('Form submission attempt');
+            console.log('Name:', name);
+            console.log('Phone:', phone);
+            console.log('Service:', service);
+            console.log('Date:', date);
+            console.log('Time:', time);
+            console.log('Address:', address);
             
-            // Validate required fields
-            const requiredFields = ['name', 'phone', 'service', 'date', 'time', 'address'];
-            const missingFields = requiredFields.filter(field => !data[field] || data[field] === '');
-            
-            if (missingFields.length > 0) {
-                const missingFieldsText = missingFields.join(', ');
-                console.error('Missing fields:', missingFieldsText);
+            // Validate required fields - check for empty values
+            if (!name || !phone || !service || !date || !time || !address) {
+                const missing = [];
+                if (!name) missing.push('name');
+                if (!phone) missing.push('phone');
+                if (!service) missing.push('service');
+                if (!date) missing.push('date');
+                if (!time) missing.push('time');
+                if (!address) missing.push('address');
+                
+                console.error('Missing fields:', missing);
                 alert(currentLang === 'ar' ? 
-                    `يرجى ملء جميع الحقول المطلوبة: ${missingFieldsText}` : 
-                    `Please fill all required fields: ${missingFieldsText}`);
+                    `يرجى ملء جميع الحقول المطلوبة: ${missing.join(', ')}` : 
+                    `Please fill all required fields: ${missing.join(', ')}`);
                 return;
             }
             
@@ -298,33 +290,35 @@ function initFormSubmission() {
             };
             
             // Format date properly
-            const formattedDate = new Date(data.date).toLocaleDateString('ar-EG');
+            const formattedDate = new Date(date).toLocaleDateString('ar-EG');
             
             const message = currentLang === 'ar' ? 
                 `مرحباً! أود حجز خدمة من BOB Home Care
 
-الاسم: ${data.name}
-الهاتف: ${data.phone}
-${data.email ? `البريد الإلكتروني: ${data.email}` : ''}
-نوع الخدمة: ${serviceNames[data.service]}
+الاسم: ${name}
+الهاتف: ${phone}
+${email ? `البريد الإلكتروني: ${email}` : ''}
+نوع الخدمة: ${serviceNames[service]}
 التاريخ المفضل: ${formattedDate}
-الوقت المفضل: ${timeNames[data.time]}
-العنوان: ${data.address}
-${data.notes ? `ملاحظات: ${data.notes}` : ''}
+الوقت المفضل: ${timeNames[time]}
+العنوان: ${address}
+${notes ? `ملاحظات: ${notes}` : ''}
 
 شكراً لكم!` :
                 `Hello! I would like to book a service from BOB Home Care
 
-Name: ${data.name}
-Phone: ${data.phone}
-${data.email ? `Email: ${data.email}` : ''}
-Service Type: ${serviceNames[data.service]}
-Preferred Date: ${data.date}
-Preferred Time: ${timeNames[data.time]}
-Address: ${data.address}
-${data.notes ? `Notes: ${data.notes}` : ''}
+Name: ${name}
+Phone: ${phone}
+${email ? `Email: ${email}` : ''}
+Service Type: ${serviceNames[service]}
+Preferred Date: ${date}
+Preferred Time: ${timeNames[time]}
+Address: ${address}
+${notes ? `Notes: ${notes}` : ''}
 
 Thank you!`;
+            
+            console.log('WhatsApp message:', message);
             
             // Show success message
             alert(currentLang === 'ar' ? 
@@ -336,14 +330,16 @@ Thank you!`;
             console.log('WhatsApp URL:', whatsappUrl);
             console.log('Redirecting to WhatsApp...');
             
-            // Use a small delay to ensure the alert is shown before redirect
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-            }, 500);
+            // Redirect immediately
+            window.location.href = whatsappUrl;
             
-            // Reset form
-            this.reset();
+            // Reset form after a delay
+            setTimeout(() => {
+                bookingForm.reset();
+            }, 1000);
         });
+    } else {
+        console.error('Booking form not found!');
     }
 }
 
