@@ -2128,3 +2128,103 @@ body {
         font-size: 1rem;
     }
 }
+
+
+/* Floating WhatsApp Icon */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+    background: linear-gradient(135deg, #20ba5a 0%, #1da851 100%);
+}
+
+.floating-whatsapp:active {
+    transform: scale(0.95);
+}
+
+.floating-whatsapp svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover svg {
+    transform: scale(1.1);
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Pulse animation for attention */
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Responsive Design for Floating WhatsApp Icon */
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .floating-whatsapp svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-whatsapp svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Ensure floating icon doesn't block footer on small screens */
+@media (max-width: 600px) {
+    .floating-whatsapp {
+        bottom: 80px;
+    }
+}
