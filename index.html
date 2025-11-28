@@ -94,26 +94,17 @@
             </div>
         </div>
         
-        <!-- Mobile Slide-in Menu -->
-        <!-- NEW MINIMAL MOBILE MENU CONTAINER -->
-        <div id="mobileMenuContainer" class="mobile-menu-container">
-            <!-- Close Button -->
-            <button id="mobileMenuCloseBtn" class="mobile-menu-close-btn" type="button" aria-label="Close Menu">✕</button>
-            
-            <!-- Menu Content -->
-            <nav id="mobileMenuNav" class="mobile-menu-nav">
-                <a href="#home" class="mobile-menu-link">الرئيسية</a>
-                <a href="#about" class="mobile-menu-link">من نحن</a>
-                <a href="#services" class="mobile-menu-link">خدماتنا</a>
-                <a href="#blog" class="mobile-menu-link">المدونة</a>
-                <a href="#testimonials" class="mobile-menu-link">آراء العملاء</a>
-                <a href="#contact" class="mobile-menu-link">اتصل بنا</a>
-                <a href="#contact" class="mobile-menu-link mobile-menu-book">احجز الآن</a>
-            </nav>
+        <!-- ULTRA-SIMPLE MOBILE MENU -->
+        <div id="menu" class="menu">
+            <a href="#home" onclick="closeMenu()">الرئيسية</a>
+            <a href="#about" onclick="closeMenu()">من نحن</a>
+            <a href="#services" onclick="closeMenu()">خدماتنا</a>
+            <a href="#blog" onclick="closeMenu()">المدونة</a>
+            <a href="#testimonials" onclick="closeMenu()">آراء العملاء</a>
+            <a href="#contact" onclick="closeMenu()">اتصل بنا</a>
+            <a href="#contact" class="book-link" onclick="closeMenu()">احجز الآن</a>
         </div>
-        
-        <!-- Backdrop Overlay -->
-        <div id="mobileMenuBackdrop" class="mobile-menu-backdrop"></div>
+        <div id="overlay" class="overlay" onclick="closeMenu()"></div>
     </header>
 
     <!-- Hero Section -->

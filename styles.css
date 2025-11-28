@@ -2320,110 +2320,28 @@ body {
 /* Hamburger Menu Toggle Button */
 
 /* ============================================
-   NEW SIMPLIFIED MOBILE MENU - COMPLETE REWRITE
+   ULTRA-SIMPLE MOBILE MENU
    ============================================ */
 
-/* Mobile menu toggle button */
-#mobileMenuToggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 10001;
-    position: relative;
-    width: 44px;
-    height: 44px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    order: 1;
-}
-
-#mobileMenuToggle span {
-    display: block;
-    width: 24px;
-    height: 2.5px;
-    background-color: white;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-}
-
-#mobileMenuToggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-#mobileMenuToggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-#mobileMenuToggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-}
-
-/* Mobile menu container */
-#mobileMenu {
+/* Mobile menu */
+.menu {
     position: fixed;
-    top: 0;
+    top: 60px;
     right: -100%;
     width: 100%;
-    max-width: 85vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
-    z-index: 9999;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    transition: right 0.3s ease;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-    padding-top: 0;
+    padding: 0;
 }
 
-#mobileMenu.show {
+.menu.active {
     right: 0;
 }
 
-/* Mobile menu header */
-.mobile-menu-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* Mobile menu close button */
-#mobileMenuClose {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 32px;
-    cursor: pointer;
-    padding: 0;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    line-height: 1;
-}
-
-#mobileMenuClose:active {
-    transform: scale(0.9);
-}
-
-/* Mobile menu content */
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-    gap: 0;
-}
-
-/* Mobile nav links */
-.mobile-nav-link {
+.menu a {
     display: block;
     color: white;
     text-decoration: none;
@@ -2431,92 +2349,44 @@ body {
     font-weight: 500;
     padding: 16px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.2s ease;
-    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.mobile-nav-link:active {
+.menu a:active {
     background: rgba(0, 0, 0, 0.15);
 }
 
-/* Mobile book button */
-.mobile-book-btn {
-    display: block;
+.menu .book-link {
     background: white;
     color: #00a66a;
-    text-decoration: none;
-    font-size: 16px;
     font-weight: 600;
-    padding: 16px 20px;
     margin: 20px;
     border-radius: 8px;
     text-align: center;
-    cursor: pointer;
     border: none;
-    transition: all 0.2s ease;
 }
 
-.mobile-book-btn:active {
-    opacity: 0.8;
-    transform: scale(0.98);
-}
-
-/* Mobile social icons */
-.mobile-social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 20px;
-}
-
-.mobile-social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: white;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.mobile-social-icon svg {
-    width: 100%;
-    height: 100%;
-}
-
-.mobile-social-icon:active {
-    transform: scale(0.9);
-}
-
-/* Mobile menu overlay/backdrop */
-.mobile-menu-overlay {
+/* Overlay */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0);
-    z-index: 9998;
-    transition: background 0.4s ease;
+    z-index: 998;
+    transition: background 0.3s ease;
     pointer-events: none;
 }
 
-.mobile-menu-overlay.show {
+.overlay.active {
     background: rgba(0, 0, 0, 0.5);
     pointer-events: auto;
 }
 
 /* Media query for mobile */
 @media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-    }
+
     
     .mobile-menu {
         display: none !important;

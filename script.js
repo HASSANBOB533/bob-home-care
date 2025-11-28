@@ -968,3 +968,43 @@ if (document.readyState === 'loading') {
 } else {
     initGalleryLightbox();
 }
+// Ultra-Simple Mobile Menu Toggle
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const btn = document.getElementById('mobileMenuBtn');
+    
+    if (menu && overlay && btn) {
+        menu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        btn.classList.toggle('active');
+    }
+}
+
+function closeMenu() {
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const btn = document.getElementById('mobileMenuBtn');
+    
+    if (menu && overlay && btn) {
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        btn.classList.remove('active');
+    }
+}
+
+// Attach event listener to hamburger button
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('mobileMenuBtn');
+    if (btn) {
+        btn.addEventListener('click', toggleMenu);
+        console.log('✓ Mobile menu initialized');
+    }
+});
+
+// Close menu on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMenu();
+    }
+});
