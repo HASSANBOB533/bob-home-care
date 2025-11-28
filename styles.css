@@ -4343,3 +4343,219 @@ section {
         font-size: 0.95rem;
     }
 }
+
+/* ============================================
+   MOBILE COMPACT SPACING - REDUCE WIDE GAPS
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Hero section - reduce vertical spacing */
+    .hero {
+        padding: 20px 0 30px;
+    }
+    
+    .hero-container {
+        padding: 0 15px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    
+    .hero-badges {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .badge {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .hero-image {
+        margin-top: 15px;
+    }
+    
+    .team-photo {
+        height: auto;
+        max-height: 350px;
+        border-radius: 20px;
+    }
+    
+    /* Sections - reduce padding */
+    section {
+        padding: 30px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Section headings */
+    section h2 {
+        margin-bottom: 15px;
+    }
+    
+    section > .container > p {
+        margin-bottom: 20px;
+    }
+    
+    /* Services grid */
+    .services-grid {
+        gap: 12px;
+    }
+    
+    .service-card {
+        padding: 15px;
+    }
+    
+    /* Features */
+    .features {
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .feature {
+        padding: 15px;
+    }
+    
+    /* About section */
+    .about {
+        padding: 25px 0;
+    }
+    
+    .about p {
+        margin-bottom: 12px;
+    }
+    
+    /* Gallery */
+    .gallery {
+        padding: 25px 0;
+    }
+    
+    .before-after-gallery {
+        margin: 15px -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+        padding: 25px 0;
+    }
+    
+    /* Contact section */
+    .contact {
+        padding: 25px 0;
+    }
+    
+    .contact-info {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-item {
+        padding: 12px;
+    }
+    
+    .booking-section {
+        padding: 20px 15px;
+    }
+    
+    .booking-form .form-row {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 25px 0 15px;
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra compact for small screens */
+    .hero {
+        padding: 15px 0 25px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .hero-badges {
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+    
+    .badge {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .team-photo {
+        max-height: 300px;
+        border-radius: 15px;
+    }
+    
+    section {
+        padding: 20px 0;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    .service-card {
+        padding: 12px;
+    }
+    
+    .feature {
+        padding: 12px;
+    }
+    
+    .booking-section {
+        padding: 15px 12px;
+    }
+    
+    .contact-item {
+        padding: 10px;
+    }
+}
