@@ -1,0 +1,104 @@
+{
+  "cdn": {
+    "provider": "cloudflare",
+    "enabled": true,
+    "description": "CDN Configuration for BOB Home Care Website",
+    "setup_instructions": [
+      "1. Go to https://www.cloudflare.com/",
+      "2. Sign up for a free account",
+      "3. Add your domain (e.g., bobhomecare.com)",
+      "4. Update your domain nameservers to Cloudflare's nameservers",
+      "5. Enable caching rules and performance features",
+      "6. Configure Page Rules for optimal caching"
+    ],
+    "features": {
+      "global_distribution": "Serve content from edge locations worldwide",
+      "automatic_compression": "Automatic Brotli/Gzip compression",
+      "image_optimization": "Automatic image format optimization",
+      "caching": "Aggressive caching for static assets",
+      "ddos_protection": "Enterprise-grade DDoS protection",
+      "ssl_tls": "Free SSL/TLS certificate",
+      "http2": "HTTP/2 and HTTP/3 (QUIC) support"
+    },
+    "caching_rules": {
+      "images": {
+        "path": "/images/*",
+        "cache_level": "cache_everything",
+        "browser_cache_ttl": 31536000,
+        "edge_cache_ttl": 31536000
+      },
+      "css_js": {
+        "path": "/*.{css,js,min.css,min.js}",
+        "cache_level": "cache_everything",
+        "browser_cache_ttl": 2592000,
+        "edge_cache_ttl": 2592000
+      },
+      "html": {
+        "path": "/*.html",
+        "cache_level": "cache_on_cookie",
+        "browser_cache_ttl": 3600,
+        "edge_cache_ttl": 3600
+      },
+      "api": {
+        "path": "/api/*",
+        "cache_level": "bypass",
+        "browser_cache_ttl": 0
+      }
+    },
+    "performance_settings": {
+      "minification": {
+        "html": true,
+        "css": true,
+        "javascript": true
+      },
+      "rocket_loader": true,
+      "lazy_loading": true,
+      "image_optimization": true,
+      "http2_server_push": true
+    },
+    "security_settings": {
+      "security_level": "high",
+      "challenge_passage": 30,
+      "browser_integrity_check": true,
+      "bot_management": true
+    },
+    "expected_improvements": {
+      "page_load_time": "20-30% faster for international users",
+      "bandwidth_savings": "40-50% reduction",
+      "ddos_protection": "Enterprise-grade protection",
+      "global_reach": "Serve from 200+ edge locations"
+    }
+  },
+  "alternative_cdns": [
+    {
+      "name": "AWS CloudFront",
+      "url": "https://aws.amazon.com/cloudfront/",
+      "pros": "Highly scalable, integrates with AWS ecosystem",
+      "cons": "More complex setup, pay-as-you-go pricing"
+    },
+    {
+      "name": "Fastly",
+      "url": "https://www.fastly.com/",
+      "pros": "Real-time purging, excellent performance",
+      "cons": "Higher pricing than Cloudflare"
+    },
+    {
+      "name": "BunnyCDN",
+      "url": "https://bunnycdn.com/",
+      "pros": "Affordable, good performance, easy setup",
+      "cons": "Smaller network than Cloudflare"
+    }
+  ],
+  "deployment_checklist": [
+    "☐ Choose CDN provider (Cloudflare recommended for free tier)",
+    "☐ Register domain with CDN provider",
+    "☐ Update domain nameservers",
+    "☐ Enable SSL/TLS certificate",
+    "☐ Configure caching rules",
+    "☐ Enable performance features",
+    "☐ Set up monitoring and analytics",
+    "☐ Test global performance",
+    "☐ Monitor CDN analytics",
+    "☐ Optimize based on performance data"
+  ]
+}

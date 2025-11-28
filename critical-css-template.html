@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOB Home Care - خدمات التنظيف المنزلي</title>
+    
+    <!-- Critical CSS - Inlined for faster rendering -->
+    <style>
+        /* Critical CSS inlined here for above-the-fold content */
+        /* This ensures header, hero, and above-the-fold sections render immediately */
+        /* See critical.css for the full critical CSS content */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #00a66a;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-left {
+            flex: 0 0 auto;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header-center h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .header-center p {
+            font-size: 12px;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .book-btn {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .book-btn:hover {
+            background-color: #ff5252;
+        }
+
+        .lang-toggle {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background-color: white;
+            color: #00a66a;
+        }
+
+        .social-icons-header {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: white;
+            color: #00a66a;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #00a66a 0%, #008c52 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff5252;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-photo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-center h1 {
+                font-size: 18px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-text h2 {
+                font-size: 24px;
+            }
+
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+    </style>
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Other meta tags -->
+    <meta name="description" content="خدمات التنظيف المنزلي بمعايير الضيافة العالمية">
+    <meta name="theme-color" content="#00a66a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Your HTML content here -->
+    
+    <!-- Scripts loaded at the end -->
+    <script src="sw-register.min.js" defer></script>
+    <script src="lazy-load.min.js" defer></script>
+    <script src="script.min.js" defer></script>
+</body>
+</html>
+
+<!--
+CRITICAL CSS INLINING BENEFITS:
+
+1. Faster First Contentful Paint (FCP)
+   - Critical CSS is rendered immediately without waiting for external stylesheet
+   - Reduces render-blocking resources
+   - Expected improvement: 5-10% faster FCP
+
+2. Improved Core Web Vitals
+   - Largest Contentful Paint (LCP): Faster above-the-fold rendering
+   - Cumulative Layout Shift (CLS): Prevents layout shifts during CSS loading
+   - First Input Delay (FID): Faster interactive elements
+
+3. Better Mobile Performance
+   - Reduces time to interactive on slow networks
+   - Improves perceived performance
+   - Better user experience on 3G/4G connections
+
+4. SEO Benefits
+   - Faster page load = better SEO ranking
+   - Improved Core Web Vitals = ranking boost
+   - Better crawlability for search engines
+
+IMPLEMENTATION STEPS:
+
+1. Extract critical CSS (header, hero, above-the-fold)
+   - Use tools like CriticalCSS.com or Penthouse
+   - Or manually create critical.css file
+
+2. Inline critical CSS in <head>
+   - Use <style> tag with critical CSS
+   - Keep it under 14KB (recommended)
+
+3. Load non-critical CSS asynchronously
+   - Use media queries or JavaScript
+   - Load after page render
+
+4. Defer JavaScript
+   - Use defer attribute on scripts
+   - Load after DOM is ready
+
+5. Monitor performance
+   - Use Google PageSpeed Insights
+   - Track Core Web Vitals
+   - Measure improvements
+
+EXPECTED PERFORMANCE GAINS:
+
+- First Contentful Paint (FCP): 5-10% faster
+- Largest Contentful Paint (LCP): 10-15% faster
+- Time to Interactive (TTI): 5-10% faster
+- Overall Page Load Time: 5-10% faster
+
+This technique is especially effective for mobile users and slow network connections.
+-->
