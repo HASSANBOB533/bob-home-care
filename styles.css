@@ -57,7 +57,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 166, 106, 0.3);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
     animation: fadeInUp 0.8s ease-out;
     min-height: auto;
 }
@@ -2318,7 +2318,7 @@ body {
     cursor: pointer;
     padding: 8px;
     gap: 5px;
-    z-index: 1001;
+    z-index: 10000;
 }
 
 .mobile-menu-toggle span {
@@ -2359,7 +2359,7 @@ body {
     max-width: 300px;
     height: 100vh;
     background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
-    z-index: 999;
+    z-index: 9999;
     transition: right 0.3s ease;
     overflow-y: auto;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
@@ -2479,7 +2479,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
+    z-index: 9998;
 }
 
 .mobile-menu-overlay.active {
