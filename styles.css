@@ -1,6 +1,7 @@
 /* Reset and Base Styles */
 :root {
     --navbar-height: 60px;
+    --header-text-color: white;
 }
 
 * {
@@ -3896,7 +3897,7 @@ input, textarea {
     display: block;
     width: 24px;
     height: 2px;
-    background: white;
+    background: var(--header-text-color, white);
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -4037,7 +4038,7 @@ input, textarea {
 }
 
 [dir="rtl"] .hamburger-line {
-    background: white;
+    background: var(--header-text-color, white);
 }
 
 [dir="rtl"] .mobile-menu-btn.active .hamburger-line:nth-child(1) {
@@ -4066,9 +4067,8 @@ input, textarea {
 /* Body scroll lock when menu is open */
 body.menu-open {
     overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
 }
 
 /* ============================================
