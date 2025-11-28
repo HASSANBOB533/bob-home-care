@@ -918,3 +918,138 @@ document.addEventListener('keydown', function(e) {
         closeMenu();
     }
 });
+
+// ========================================
+// BULLETPROOF RTL MOBILE MENU JAVASCRIPT
+// ========================================
+
+(function() {
+    'use strict';
+    
+    // Get elements
+    const toggleBtn = document.getElementById('mobileMenuToggle');
+    const menuPanel = document.getElementById('mobileMenuPanel');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    // Safety check
+    if (!toggleBtn || !menuPanel || !closeBtn || !overlay) {
+        console.error('Mobile menu elements not found');
+        return;
+    }
+    
+    // Toggle menu function
+    function toggleMenu() {
+        const isOpen = menuPanel.classList.contains('open');
+        
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+    
+    // Open menu function
+    function openMenu() {
+        menuPanel.classList.add('open');
+        overlay.classList.add('open');
+        toggleBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Close menu function
+    function closeMenu() {
+        menuPanel.classList.remove('open');
+        overlay.classList.remove('open');
+        toggleBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Event listeners
+    toggleBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+    
+    console.log('✓ BULLETPROOF RTL Mobile menu initialized successfully');
+})();
+
+
+// ULTRA-MINIMAL MOBILE MENU - GUARANTEED TO WORK
+(function() {
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+    
+    if (!menuBtn || !closeBtn || !mobileMenu || !overlay) {
+      console.error('Menu elements not found!');
+      return;
+    }
+    
+    // Show menu button on mobile
+    function checkMobile() {
+      if (window.innerWidth <= 768) {
+        menuBtn.style.display = 'block';
+      } else {
+        menuBtn.style.display = 'none';
+        mobileMenu.style.left = '-100%';
+        overlay.style.display = 'none';
+      }
+    }
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Toggle menu
+    menuBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      mobileMenu.style.left = '0';
+      overlay.style.display = 'block';
+      console.log('✓ Menu opened');
+    });
+    
+    // Close menu
+    closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileMenu.style.left = '-100%';
+      overlay.style.display = 'none';
+      console.log('✓ Menu closed');
+    });
+    
+    // Close on overlay click
+    overlay.addEventListener('click', function() {
+      mobileMenu.style.left = '-100%';
+      overlay.style.display = 'none';
+    });
+    
+    // Close on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.style.left = '-100%';
+        overlay.style.display = 'none';
+      });
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        mobileMenu.style.left = '-100%';
+        overlay.style.display = 'none';
+      }
+    });
+    console.log('✓ ULTRA-MINIMAL Mobile menu initialized successfully');
+})();

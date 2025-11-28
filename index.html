@@ -40,9 +40,9 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <!-- Mobile Hamburger Menu -->
-            <!-- NEW MINIMAL MOBILE MENU BUTTON -->
-            <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Open Menu">
+            <!-- BULLETPROOF RTL MOBILE MENU -->
+            <!-- Hamburger Button - LEFT side for Arabic -->
+            <button id="menuBtn" style="background: none; border: none; cursor: pointer; padding: 10px; display: none;" aria-label="فتح القائمة">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -94,17 +94,26 @@
             </div>
         </div>
         
-        <!-- ULTRA-SIMPLE MOBILE MENU -->
-        <div id="menu" class="menu">
-            <a href="#home" onclick="closeMenu()">الرئيسية</a>
-            <a href="#about" onclick="closeMenu()">من نحن</a>
-            <a href="#services" onclick="closeMenu()">خدماتنا</a>
-            <a href="#blog" onclick="closeMenu()">المدونة</a>
-            <a href="#testimonials" onclick="closeMenu()">آراء العملاء</a>
-            <a href="#contact" onclick="closeMenu()">اتصل بنا</a>
-            <a href="#contact" class="book-link" onclick="closeMenu()">احجز الآن</a>
+        <!-- ULTRA-MINIMAL MOBILE MENU - GUARANTEED TO WORK -->
+        <!-- Menu Container -->
+        <div id="mobileMenu" style="position: fixed; left: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: left 0.3s ease; overflow-y: auto; padding-top: 80px;">
+          <!-- Close Button -->
+          <button id="closeBtn" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002;">×</button>
+          
+          <!-- Menu Links -->
+          <nav style="display: flex; flex-direction: column; gap: 0;">
+            <a href="#home" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">الرئيسية</a>
+            <a href="#about" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">من نحن</a>
+            <a href="#services" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">خدماتنا</a>
+            <a href="#blog" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">المدونة</a>
+            <a href="#testimonials" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">آراء العملاء</a>
+            <a href="#contact" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">اتصل بنا</a>
+            <a href="#contact" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px;">احجز الآن</a>
+          </nav>
         </div>
-        <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+        
+        <!-- Overlay Backdrop -->
+        <div id="menuOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9998; display: none;"></div>
     </header>
 
     <!-- Hero Section -->
