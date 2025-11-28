@@ -397,61 +397,68 @@
         <div class="container">
             <h2>آراء عملائنا من Airbnb</h2>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"نظيف ومرتب، الشقة نظيفة ومرتبة"</p>
-                    <div class="author">
-                        <strong>نواف</strong>
-                        <span>Airbnb Guest</span>
+            <div class="testimonials-carousel-wrapper">
+                <button class="testimonial-carousel-btn prev" aria-label="Previous review">❮</button>
+                <div class="testimonials-carousel">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"نظيف ومرتب، الشقة نظيفة ومرتبة"</p>
+                            <div class="author">
+                                <strong>نواف</strong>
+                                <span>Airbnb Guest</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"The place was spotless, cozy, and really well equipped"</p>
+                            <div class="author">
+                                <strong>Norran - 4 years on Airbnb</strong>
+                                <span>Airbnb Guest</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"المكان كان نظيفاً جداً ومنظماً بشكل مثالي"</p>
+                            <div class="author">
+                                <strong>إبراهيم - مصر</strong>
+                                <span>Airbnb Guest</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Very clean, organized and exactly like the pictures"</p>
+                            <div class="author">
+                                <strong>Ahmed - 3 years on Airbnb</strong>
+                                <span>Airbnb Guest</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Impeccably clean"</p>
+                            <div class="author">
+                                <strong>Moetazbellah - مصر</strong>
+                                <span>Airbnb Guest - Rating 9.0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Clean and comfortable, well-equipped"</p>
+                            <div class="author">
+                                <strong>Haitham - Maryland, USA</strong>
+                                <span>Airbnb Guest</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The place was spotless, cozy, and really well equipped"</p>
-                    <div class="author">
-                        <strong>Norran - 4 years on Airbnb</strong>
-                        <span>Airbnb Guest</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"المكان كان نظيفاً جداً ومنظماً بشكل مثالي"</p>
-                    <div class="author">
-                        <strong>إبراهيم - مصر</strong>
-                        <span>Airbnb Guest</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Very clean, organized and exactly like the pictures"</p>
-                    <div class="author">
-                        <strong>Ahmed - 3 years on Airbnb</strong>
-                        <span>Airbnb Guest</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Impeccably clean"</p>
-                    <div class="author">
-                        <strong>Moetazbellah - مصر</strong>
-                        <span>Airbnb Guest - Rating 9.0</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Clean and comfortable, well-equipped"</p>
-                    <div class="author">
-                        <strong>Haitham - Maryland, USA</strong>
-                        <span>Airbnb Guest</span>
-                    </div>
-                </div>
+                <button class="testimonial-carousel-btn next" aria-label="Next review">❯</button>
             </div>
+            <div class="testimonials-indicators" id="testimonialsIndicators"></div>
         </div>
     </section>
 
@@ -589,8 +596,8 @@
                         </select>
                     </div>
                     <div class="form-row">
-                        <input type="date" name="date" required>
-                        <select name="time" required>
+                        <input type="date" name="date" id="bookingDate" placeholder="اختر التاريخ" min="" required>
+                        <select name="time" id="bookingTime" required>
                             <option value="" disabled selected>الوقت المفضل</option>
                             <option value="morning">صباحاً (9-12)</option>
                             <option value="afternoon">بعد الظهر (12-5)</option>

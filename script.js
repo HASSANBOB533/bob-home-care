@@ -623,3 +623,163 @@ window.toggleLanguage = function() {
     originalToggleLanguage.call(this);
     updateMobileMenuLanguage();
 };
+
+
+// ============================================
+// TESTIMONIALS CAROUSEL
+// ============================================
+
+function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonialsTrack');
+    const indicatorsContainer = document.getElementById('testimonialsIndicators');
+    const prevBtn = document.querySelector('.testimonial-carousel-btn.prev');
+    const nextBtn = document.querySelector('.testimonial-carousel-btn.next');
+    
+    if (!track) return;
+    
+    const cards = track.querySelectorAll('.testimonial-card');
+    const cardCount = cards.length;
+    let currentIndex = 0;
+    let autoplayInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Create indicators
+    for (let i = 0; i < cardCount; i++) {
+        const indicator = document.createElement('button');
+        indicator.className = `testimonial-indicator ${i === 0 ? 'active' : ''}`;
+        indicator.setAttribute('aria-label', `Review ${i + 1}`);
+        indicator.addEventListener('click', () => goToSlide(i));
+        indicatorsContainer.appendChild(indicator);
+    }
+    
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+        
+        // Update indicators
+        document.querySelectorAll('.testimonial-indicator').forEach((ind, i) => {
+            ind.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % cardCount;
+        updateCarousel();
+        resetAutoplay();
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+        updateCarousel();
+        resetAutoplay();
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+        resetAutoplay();
+    }
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+    
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+    
+    // Touch/Swipe support
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(autoplayInterval);
+    });
+    
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+    
+    // Start autoplay
+    startAutoplay();
+    
+    // Pause autoplay on hover
+    track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    track.addEventListener('mouseleave', startAutoplay);
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+
+
+// ============================================
+// DATE PICKER INITIALIZATION
+// ============================================
+
+function initDatePicker() {
+    const dateInput = document.getElementById('bookingDate');
+    if (!dateInput) return;
+    
+    // Set minimum date to today
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const minDate = `${year}-${month}-${day}`;
+    
+    dateInput.setAttribute('min', minDate);
+    
+    // Set maximum date to 90 days from now
+    const maxDate = new Date(today);
+    maxDate.setDate(maxDate.getDate() + 90);
+    const maxYear = maxDate.getFullYear();
+    const maxMonth = String(maxDate.getMonth() + 1).padStart(2, '0');
+    const maxDay = String(maxDate.getDate()).padStart(2, '0');
+    const maxDateStr = `${maxYear}-${maxMonth}-${maxDay}`;
+    
+    dateInput.setAttribute('max', maxDateStr);
+    
+    // Ensure proper date formatting on mobile
+    dateInput.addEventListener('change', function() {
+        if (this.value) {
+            // Validate date
+            const selectedDate = new Date(this.value);
+            const selectedTime = selectedDate.getTime();
+            const minTime = new Date(minDate).getTime();
+            const maxTime = new Date(maxDateStr).getTime();
+            
+            if (selectedTime < minTime || selectedTime > maxTime) {
+                this.value = '';
+                alert('يرجى اختيار تاريخ صحيح');
+            }
+        }
+    });
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', initDatePicker);

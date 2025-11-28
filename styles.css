@@ -2490,6 +2490,64 @@ body {
    RESPONSIVE HEADER - TABLET (768px and below)
    ============================================ */
 
+/* Video Section Mobile Responsive */
+@media (max-width: 768px) {
+    .video-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .video-info {
+        gap: 15px;
+    }
+    
+    .video-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .video-features {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-content {
+        gap: 20px;
+    }
+    
+    .video-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .video-features {
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+}
+
+/* Testimonials Carousel Mobile */
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .testimonial-card {
+        padding: 20px;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.95rem;
+    }
+}
+
 @media (max-width: 768px) {
     .header-container {
         flex-direction: row;
@@ -2534,6 +2592,45 @@ body {
 /* ============================================
    RESPONSIVE HEADER - MOBILE (480px and below)
    ============================================ */
+
+/* Booking Form Mobile Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-form {
+        margin-bottom: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .submit-btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+        margin: 20px auto 0;
+    }
+}
 
 @media (max-width: 480px) {
     .header {
@@ -2634,5 +2731,428 @@ body {
 
     .header-logo-wrapper {
         flex: 0 0 auto;
+    }
+}
+
+
+/* ============================================
+   TESTIMONIALS CAROUSEL
+   ============================================ */
+
+.testimonials-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.testimonial-carousel-btn {
+    background: linear-gradient(45deg, #00a66a, #00d084);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 166, 106, 0.3);
+}
+
+.testimonial-carousel-btn:hover {
+    background: linear-gradient(45deg, #008a57, #00b870);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 166, 106, 0.5);
+}
+
+.testimonial-carousel-btn:active {
+    transform: scale(0.95);
+}
+
+.testimonials-carousel {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 20px;
+}
+
+.testimonials-track .testimonial-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
+.testimonials-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.testimonial-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-indicator.active {
+    background: #00a66a;
+    border-color: #00a66a;
+    transform: scale(1.2);
+}
+
+/* Testimonials Carousel Mobile */
+@media (max-width: 768px) {
+    .testimonials-carousel-wrapper {
+        gap: 15px;
+    }
+    
+    .testimonial-carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .testimonials-track {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-carousel-wrapper {
+        gap: 10px;
+    }
+    
+    .testimonial-carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .testimonials-track {
+        gap: 10px;
+    }
+    
+    .testimonial-card {
+        padding: 15px;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ============================================
+   DATE PICKER MOBILE OPTIMIZATION
+   ============================================ */
+
+input[type="date"] {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(0.8);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Mobile date picker optimization */
+@media (max-width: 768px) {
+    input[type="date"],
+    input[type="time"],
+    select {
+        font-size: 16px; /* Prevents iOS zoom */
+        padding: 12px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="date"],
+    input[type="time"],
+    select {
+        font-size: 16px;
+        padding: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ============================================
+   MOBILE SPACING & ALIGNMENT OPTIMIZATION
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* General spacing */
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 40px 0 60px;
+    }
+    
+    .hero-content {
+        gap: 20px;
+    }
+    
+    /* Services section */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Blog section */
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Contact section */
+    .contact-section {
+        padding: 50px 0;
+    }
+    
+    .booking-section {
+        padding: 30px;
+    }
+    
+    /* Buttons */
+    .cta-button,
+    .submit-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* General spacing */
+    .container {
+        padding: 0 12px;
+    }
+    
+    section {
+        padding: 35px 0;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 30px 0 50px;
+    }
+    
+    .hero-content {
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    /* Services section */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .service-card {
+        padding: 20px;
+    }
+    
+    /* Blog section */
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .blog-card {
+        padding: 15px;
+    }
+    
+    /* Contact section */
+    .contact-section {
+        padding: 35px 0;
+    }
+    
+    .booking-section {
+        padding: 20px;
+    }
+    
+    /* Buttons */
+    .cta-button,
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Emergency contact */
+    .emergency-contact {
+        margin-top: 20px;
+    }
+    
+    .emergency-btn {
+        display: block;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Margins */
+    .section-subtitle {
+        margin-bottom: 30px;
+    }
+    
+    /* Padding */
+    .testimonial-card {
+        padding: 15px;
+    }
+    
+    .booking-info ul {
+        padding: 0;
+        margin: 15px 0;
+    }
+    
+    .booking-info li {
+        padding: 8px 0;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small screens (360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button,
+    .submit-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   MOBILE OVERFLOW & VISIBILITY FIX
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Prevent horizontal overflow */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Ensure all elements fit */
+    .header {
+        overflow: visible;
+    }
+    
+    .hero-content {
+        overflow: hidden;
+    }
+    
+    /* Fix text truncation */
+    .hero h1,
+    .hero p,
+    .section-subtitle {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Ensure videos don't overflow */
+    iframe {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Additional overflow prevention */
+    .container {
+        max-width: 100%;
+    }
+    
+    /* Ensure proper text rendering */
+    .testimonial-card p,
+    .blog-card p {
+        word-break: break-word;
+    }
+    
+    /* Fix button overflow */
+    button {
+        max-width: 100%;
+    }
+    
+    /* Fix form overflow */
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        max-width: 100%;
     }
 }
