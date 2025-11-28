@@ -419,6 +419,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     addScrollAnimationStyles();
     
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize carousel
+    new ImageCarousel();
+    
+    // Initialize testimonials carousel
+    initTestimonialsCarousel();
+    
+    // Initialize date picker
+    initDatePicker();
+    
     // Add modern loading effect
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease-in-out';
@@ -532,10 +544,7 @@ class ImageCarousel {
     }
 }
 
-// Initialize carousel when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new ImageCarousel();
-});
+// Carousel initialization moved to main DOMContentLoaded handler
 
 
 /* ============================================
@@ -612,10 +621,7 @@ function updateMobileMenuLanguage() {
     });
 }
 
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-});
+// Mobile menu initialization moved to main DOMContentLoaded handler
 
 // Update mobile menu when language changes
 const originalToggleLanguage = window.toggleLanguage;
@@ -733,8 +739,7 @@ function initTestimonialsCarousel() {
     track.addEventListener('mouseleave', startAutoplay);
 }
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+// Testimonials carousel initialization moved to main DOMContentLoaded handler
 
 
 // ============================================
@@ -781,5 +786,4 @@ function initDatePicker() {
     });
 }
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', initDatePicker);
+// Date picker initialization moved to main DOMContentLoaded handler
