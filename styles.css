@@ -3896,7 +3896,7 @@ input, textarea {
     display: block;
     width: 24px;
     height: 2px;
-    background: #333;
+    background: white;
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -4037,7 +4037,7 @@ input, textarea {
 }
 
 [dir="rtl"] .hamburger-line {
-    background: #333;
+    background: white;
 }
 
 [dir="rtl"] .mobile-menu-btn.active .hamburger-line:nth-child(1) {
@@ -4046,4 +4046,300 @@ input, textarea {
 
 [dir="rtl"] .mobile-menu-btn.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   MOBILE NAVIGATION MENU - COMPREHENSIVE FIX
+   ============================================ */
+
+/* RTL Support for the simple .menu slide-in */
+[dir="rtl"] .menu {
+    right: auto;
+    left: -100%;
+}
+
+[dir="rtl"] .menu.active {
+    left: 0;
+    right: auto;
+}
+
+/* Body scroll lock when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   CONTENT VISIBILITY - NAVBAR SPACING FIX
+   ============================================ */
+
+/* Ensure content is never hidden behind fixed navbar */
+section {
+    scroll-margin-top: var(--navbar-height, 60px);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 60px;
+    }
+    
+    body {
+        padding-top: var(--navbar-height, 60px);
+    }
+    
+    section {
+        scroll-margin-top: calc(var(--navbar-height, 60px) + 10px);
+    }
+    
+    .hero {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --navbar-height: 56px;
+    }
+    
+    body {
+        padding-top: var(--navbar-height, 56px);
+    }
+    
+    section {
+        scroll-margin-top: calc(var(--navbar-height, 56px) + 10px);
+    }
+}
+
+/* ============================================
+   TESTIMONIALS CAROUSEL - SWIPE FIX
+   ============================================ */
+
+@media (max-width: 768px) {
+    .testimonials-carousel {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+    }
+    
+    .testimonials-carousel::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .testimonials-track {
+        display: flex;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    .testimonials-track .testimonial-card {
+        flex: 0 0 85%;
+        min-width: 280px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+    
+    .testimonial-carousel-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-track .testimonial-card {
+        flex: 0 0 90%;
+        min-width: 260px;
+    }
+}
+
+/* ============================================
+   BOOKING FORM DATE PICKER - MOBILE FIX
+   ============================================ */
+
+/* Ensure date input is fully visible on mobile */
+@media (max-width: 768px) {
+    .booking-form input[type="date"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        min-height: 50px;
+        padding: 14px 16px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        background: white;
+        border: 2px solid #e1e8ed;
+        border-radius: 10px;
+        color: #333;
+        direction: ltr;
+        text-align: right;
+    }
+    
+    .booking-form input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        cursor: pointer;
+        padding: 5px;
+        background: transparent;
+    }
+    
+    .booking-form input[type="date"]:focus {
+        outline: none;
+        border-color: #00a66a;
+        box-shadow: 0 0 0 3px rgba(0, 166, 106, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-form input[type="date"] {
+        font-size: 14px;
+        min-height: 48px;
+        padding: 12px 14px;
+    }
+}
+
+/* ============================================
+   GALLERY - HORIZONTAL CAROUSEL ON MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 15px;
+        padding: 10px 0;
+        margin: 20px -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .gallery-grid .gallery-item {
+        flex: 0 0 75%;
+        min-width: 250px;
+        max-width: 280px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        aspect-ratio: 1;
+    }
+    
+    /* Before/After Gallery - Horizontal Scroll */
+    .before-after-gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 20px;
+        padding: 10px 0;
+        margin: 20px -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .before-after-gallery::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .before-after-gallery .transformation-item {
+        flex: 0 0 90%;
+        min-width: 300px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+    
+    .before-after-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid .gallery-item {
+        flex: 0 0 85%;
+        min-width: 220px;
+    }
+    
+    .before-after-gallery .transformation-item {
+        flex: 0 0 95%;
+        min-width: 280px;
+    }
+}
+
+/* ============================================
+   GENERAL MOBILE RESPONSIVENESS
+   ============================================ */
+
+/* Touch-friendly tap targets (min 44px) */
+@media (max-width: 768px) {
+    button,
+    .nav-btn,
+    .book-btn,
+    .cta-button,
+    .submit-btn,
+    input[type="submit"],
+    a.social-icon {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Readable font sizes */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
 }

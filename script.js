@@ -863,9 +863,17 @@ function toggleMenu() {
     const btn = document.getElementById('mobileMenuBtn');
     
     if (menu && overlay && btn) {
+        const isActive = menu.classList.contains('active');
         menu.classList.toggle('active');
         overlay.classList.toggle('active');
         btn.classList.toggle('active');
+        
+        // Lock body scroll when menu is open
+        if (!isActive) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
     }
 }
 
@@ -878,17 +886,31 @@ function closeMenu() {
         menu.classList.remove('active');
         overlay.classList.remove('active');
         btn.classList.remove('active');
+        document.body.classList.remove('menu-open');
     }
 }
 
-// Attach event listener to hamburger button
-document.addEventListener('DOMContentLoaded', function() {
+// Define initMobileMenu function
+function initMobileMenu() {
     const btn = document.getElementById('mobileMenuBtn');
+    const overlay = document.getElementById('overlay');
+    const menuLinks = document.querySelectorAll('#menu a');
+    
     if (btn) {
         btn.addEventListener('click', toggleMenu);
-        console.log('✓ Mobile menu initialized');
     }
-});
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on menu links
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    console.log('✓ Mobile menu initialized');
+}
 
 // Close menu on Escape key
 document.addEventListener('keydown', function(e) {
