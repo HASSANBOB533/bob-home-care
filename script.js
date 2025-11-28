@@ -436,7 +436,7 @@ class ImageCarousel {
         this.track = document.getElementById('carouselTrack');
         this.prevBtn = document.getElementById('prevBtn');
         this.nextBtn = document.getElementById('nextBtn');
-        this.indicatorsContainer = document.getElementById('indicators');
+        this.indicatorsContainer = document.getElementById('carouselIndicators');
         
         if (!this.track) return;
         
