@@ -767,7 +767,9 @@ function initGalleryLightbox() {
         alt: item.dataset.alt
     }));
 
-    totalImages.textContent = images.length;
+    if (totalImages) {
+        totalImages.textContent = images.length;
+    }
 
     // Open lightbox
     galleryItems.forEach((item, index) => {
