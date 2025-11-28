@@ -431,6 +431,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize date picker
     initDatePicker();
     
+    // Initialize lazy video
+    initLazyVideo();
+    
     // Add modern loading effect
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease-in-out';
@@ -787,3 +790,26 @@ function initDatePicker() {
 }
 
 // Date picker initialization moved to main DOMContentLoaded handler
+
+
+// ============================================
+// LAZY LOADED VIDEO INITIALIZATION
+// ============================================
+
+function initLazyVideo() {
+    const videoPlayBtn = document.getElementById('videoPlayBtn');
+    const youtubeIframe = document.getElementById('youtubeIframe');
+    const videoThumbnail = document.querySelector('.video-thumbnail');
+    
+    if (!videoPlayBtn || !youtubeIframe) return;
+    
+    function loadVideo() {
+        youtubeIframe.src = 'https://www.youtube.com/embed/4ulJE0capWc?autoplay=1';
+        youtubeIframe.style.display = 'block';
+        videoThumbnail.style.display = 'none';
+        videoPlayBtn.style.display = 'none';
+    }
+    
+    videoPlayBtn.addEventListener('click', loadVideo);
+    videoThumbnail.addEventListener('click', loadVideo);
+}

@@ -469,8 +469,10 @@
             <p class="section-subtitle">تحويلات حقيقية من عملائنا - معايير الضيافة العالمية في كل مشروع</p>
             
             <div class="video-content">
-                <div class="video-wrapper">
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/4ulJE0capWc" title="BOB Home Care - شاهد عملنا" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-wrapper" id="lazyVideoWrapper">
+                    <img src="https://img.youtube.com/vi/4ulJE0capWc/maxresdefault.jpg" alt="BOB Home Care Video" class="video-thumbnail" loading="lazy">
+                    <button class="video-play-btn" id="videoPlayBtn" aria-label="Play Video"></button>
+                    <iframe id="youtubeIframe" width="100%" height="500" src="" title="BOB Home Care - شاهد عملنا" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
                 </div>
                 <div class="video-info">
                     <h3>تحويلات احترافية بمعايير الفنادق الفاخرة</h3>
