@@ -221,62 +221,54 @@ function initSmoothScrolling() {
 
 // Form submission with WhatsApp integration
 function initFormSubmission() {
-    const bookingForm = document.getElementById('bookingForm');
+    const bookingForm = document.querySelector('form');
     
     if (bookingForm) {
+        // Get form elements
+        const nameInput = bookingForm.querySelector('input[name="name"]');
+        const phoneInput = bookingForm.querySelector('input[name="phone"]');
+        const emailInput = bookingForm.querySelector('input[name="email"]');
+        const serviceSelect = bookingForm.querySelector('select[name="service"]');
+        const dateInput = bookingForm.querySelector('input[name="date"]');
+        const timeSelect = bookingForm.querySelector('select[name="time"]');
+        const addressInput = bookingForm.querySelector('input[name="address"]');
+        const notesTextarea = bookingForm.querySelector('textarea[name="notes"]');
+        
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('=== FORM SUBMISSION STARTED ===');
             
-            // Get form elements
-            const nameInput = bookingForm.querySelector('input[name="name"]');
-            const phoneInput = bookingForm.querySelector('input[name="phone"]');
-            const emailInput = bookingForm.querySelector('input[name="email"]');
-            const serviceSelect = bookingForm.querySelector('select[name="service"]');
-            const dateInput = bookingForm.querySelector('input[name="date"]');
-            const timeSelect = bookingForm.querySelector('select[name="time"]');
-            const addressInput = bookingForm.querySelector('input[name="address"]');
-            const notesTextarea = bookingForm.querySelector('textarea[name="notes"]');
-            
-            // Get values directly from elements
+            // Get form values
             const name = nameInput.value.trim();
             const phone = phoneInput.value.trim();
             const email = emailInput.value.trim();
-            
-            // For select elements, get the selected option's value
-            // If the selected index is 0 (placeholder), the value will be empty
-            let service = serviceSelect.value;
-            if (serviceSelect.selectedIndex > 0) {
-                service = serviceSelect.options[serviceSelect.selectedIndex].value;
-            }
-            
-            let time = timeSelect.value;
-            if (timeSelect.selectedIndex > 0) {
-                time = timeSelect.options[timeSelect.selectedIndex].value;
-            }
-            
+            const service = serviceSelect.value || serviceSelect.options[serviceSelect.selectedIndex].value;
             const date = dateInput.value;
+            const time = timeSelect.value || timeSelect.options[timeSelect.selectedIndex].value;
             const address = addressInput.value.trim();
             const notes = notesTextarea.value.trim();
             
             // Debug: Log form data
-            console.log('Form submission attempt');
-            console.log('Name:', name);
-            console.log('Phone:', phone);
-            console.log('Service:', service);
-            console.log('Date:', date);
-            console.log('Time:', time);
-            console.log('Address:', address);
+            console.log('Form Data:');
+            console.log('- Name:', name, '| Empty:', !name);
+            console.log('- Phone:', phone, '| Empty:', !phone);
+            console.log('- Email:', email);
+            console.log('- Service:', service, '| Empty:', !service);
+            console.log('- Date:', date, '| Empty:', !date);
+            console.log('- Time:', time, '| Empty:', !time);
+            console.log('- Address:', address, '| Empty:', !address);
+            console.log('- Notes:', notes);
             
-            // Validate required fields - check for empty values
-            if (!name || !phone || !service || !date || !time || !address) {
-                const missing = [];
-                if (!name) missing.push('name');
-                if (!phone) missing.push('phone');
-                if (!service) missing.push('service');
-                if (!date) missing.push('date');
-                if (!time) missing.push('time');
-                if (!address) missing.push('address');
-                
+            // Validate required fields
+            const missing = [];
+            if (!name) missing.push('name');
+            if (!phone) missing.push('phone');
+            if (!service) missing.push('service');
+            if (!date) missing.push('date');
+            if (!time) missing.push('time');
+            if (!address) missing.push('address');
+            
+            if (missing.length > 0) {
                 console.error('Missing fields:', missing);
                 alert(currentLang === 'ar' ? 
                     `يرجى ملء جميع الحقول المطلوبة: ${missing.join(', ')}` : 
@@ -309,9 +301,9 @@ function initFormSubmission() {
 الاسم: ${name}
 الهاتف: ${phone}
 ${email ? `البريد الإلكتروني: ${email}` : ''}
-نوع الخدمة: ${serviceNames[service]}
+نوع الخدمة: ${serviceNames[service] || service}
 التاريخ المفضل: ${formattedDate}
-الوقت المفضل: ${timeNames[time]}
+الوقت المفضل: ${timeNames[time] || time}
 العنوان: ${address}
 ${notes ? `ملاحظات: ${notes}` : ''}
 
@@ -321,33 +313,30 @@ ${notes ? `ملاحظات: ${notes}` : ''}
 Name: ${name}
 Phone: ${phone}
 ${email ? `Email: ${email}` : ''}
-Service Type: ${serviceNames[service]}
+Service Type: ${serviceNames[service] || service}
 Preferred Date: ${date}
-Preferred Time: ${timeNames[time]}
+Preferred Time: ${timeNames[time] || time}
 Address: ${address}
 ${notes ? `Notes: ${notes}` : ''}
 
 Thank you!`;
             
-            console.log('WhatsApp message:', message);
+            console.log('=== WHATSAPP MESSAGE ===');
+            console.log(message);
+            
+            // Redirect to WhatsApp
+            const whatsappUrl = `https://wa.me/201273518887?text=${encodeURIComponent(message)}`;
+            console.log('=== WHATSAPP URL ===');
+            console.log(whatsappUrl);
+            console.log('=== REDIRECTING TO WHATSAPP ===');
             
             // Show success message
             alert(currentLang === 'ar' ? 
                 'تم إرسال طلب الحجز! سيتم توجيهك إلى WhatsApp الآن' : 
                 'Booking request sent! You will be redirected to WhatsApp now');
             
-            // Redirect to WhatsApp
-            const whatsappUrl = `https://wa.me/201273518887?text=${encodeURIComponent(message)}`;
-            console.log('WhatsApp URL:', whatsappUrl);
-            console.log('Redirecting to WhatsApp...');
-            
             // Redirect immediately
             window.location.href = whatsappUrl;
-            
-            // Reset form after a delay
-            setTimeout(() => {
-                bookingForm.reset();
-            }, 1000);
         });
     } else {
         console.error('Booking form not found!');
