@@ -1589,3 +1589,19 @@ body {
         font-size: 14px;
     }
 }
+
+
+/* Fix logo sizing for all pages */
+.nav-logo img.logo {
+    max-width: 80px !important;
+    max-height: 80px !important;
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.logo {
+    max-width: 80px !important;
+    max-height: 80px !important;
+    width: 80px !important;
+    height: 80px !important;
+}
