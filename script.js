@@ -536,3 +536,90 @@ class ImageCarousel {
 document.addEventListener('DOMContentLoaded', () => {
     new ImageCarousel();
 });
+
+
+/* ============================================
+   MOBILE MENU FUNCTIONALITY
+   ============================================ */
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
+    const mobileMenuOverlay = document.createElement('div');
+    
+    // Create overlay element
+    mobileMenuOverlay.className = 'mobile-menu-overlay';
+    document.body.appendChild(mobileMenuOverlay);
+    
+    // Toggle menu open/close
+    function toggleMenu() {
+        const isActive = mobileMenu.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active', isActive);
+        mobileMenuOverlay.classList.toggle('active', isActive);
+        
+        // Prevent body scroll when menu is open
+        if (isActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close menu
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Event listeners
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+    }
+    
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking overlay
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking a navigation link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Close menu on window resize (when going from mobile to desktop)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+}
+
+// Update mobile menu text when language changes
+function updateMobileMenuLanguage() {
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
+    mobileNavLinks.forEach(link => {
+        const key = link.getAttribute('data-' + currentLang);
+        if (key) {
+            link.textContent = key;
+        }
+    });
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+});
+
+// Update mobile menu when language changes
+const originalToggleLanguage = window.toggleLanguage;
+window.toggleLanguage = function() {
+    originalToggleLanguage.call(this);
+    updateMobileMenuLanguage();
+};

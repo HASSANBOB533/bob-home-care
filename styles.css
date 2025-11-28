@@ -53,12 +53,13 @@ body {
 .header {
     background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
     color: white;
-    padding: 10px 0;
+    padding: 8px 0;
     box-shadow: 0 10px 30px rgba(0, 166, 106, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
     animation: fadeInUp 0.8s ease-out;
+    min-height: auto;
 }
 
 .header-container {
@@ -69,6 +70,7 @@ body {
     margin: 0 auto;
     padding: 8px 30px;
     gap: 15px;
+    min-height: 60px;
 }
 
 .header-left {
@@ -151,6 +153,7 @@ body {
     object-fit: contain;
     transition: all 0.3s ease;
     animation: float 3s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 .header-logo:hover {
@@ -240,9 +243,10 @@ body {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
     overflow: hidden;
+    margin-top: 0;
 }
 
 .hero::before {
@@ -1269,17 +1273,23 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .hero-text h2 {
         font-size: 2rem;
+        margin-bottom: 20px;
     }
 
     .hero-text p {
         font-size: 1.1rem;
+        margin-bottom: 25px;
     }
 
     .team-photo {
@@ -1352,12 +1362,17 @@ body {
     }
 
     .header-logo {
-        width: 70px;
-        height: 70px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        padding: 30px 0;
     }
 
     .hero-text h2 {
         font-size: 1.5rem;
+        margin-bottom: 15px;
     }
 
     .services h2,
@@ -2286,5 +2301,338 @@ body {
 @media (max-width: 600px) {
     .floating-whatsapp {
         bottom: 80px;
+    }
+}
+
+
+/* ============================================
+   MOBILE NAVIGATION STYLES
+   ============================================ */
+
+/* Hamburger Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Logo Wrapper */
+.header-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Mobile Menu Slide-in */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    z-index: 999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+    transform: scale(1.2);
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+}
+
+.mobile-nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-right: 30px;
+}
+
+.mobile-book-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    text-align: center;
+    display: block;
+}
+
+.mobile-book-btn:hover {
+    background: linear-gradient(45deg, #ff5252, #ff7979);
+    transform: scale(1.05);
+}
+
+.mobile-social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.mobile-social-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.mobile-social-icon:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Mobile Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+}
+
+/* ============================================
+   RESPONSIVE HEADER - TABLET (768px and below)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 15px;
+        gap: 10px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        order: 1;
+    }
+
+    .header-logo-wrapper {
+        flex: 1;
+        order: 2;
+    }
+
+    .header-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .social-icons-header {
+        display: none;
+    }
+}
+
+/* ============================================
+   RESPONSIVE HEADER - MOBILE (480px and below)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 0;
+    }
+
+    .header-container {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-menu-toggle span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .header-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-menu {
+        max-width: 100%;
+    }
+
+    .mobile-menu-header {
+        padding: 15px;
+    }
+
+    .mobile-menu-content {
+        padding: 15px;
+    }
+
+    .mobile-nav-link {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+
+    .mobile-book-btn {
+        padding: 12px 15px;
+        font-size: 1rem;
+        margin: 15px 0;
+    }
+
+    .mobile-social-icons {
+        gap: 12px;
+    }
+
+    .mobile-social-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .mobile-social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* ============================================
+   DESKTOP ONLY STYLES (768px and above)
+   ============================================ */
+
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu-overlay {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: flex;
+    }
+
+    .header-right {
+        display: flex;
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-logo-wrapper {
+        flex: 0 0 auto;
     }
 }
