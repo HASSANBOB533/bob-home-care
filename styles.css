@@ -777,13 +777,10 @@ body {
 
 .video-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
     animation: fadeInUp 0.8s ease-out 0.4s both;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .video-wrapper {
@@ -795,8 +792,6 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 166, 106, 0.2);
     background: #000;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .video-wrapper iframe {
