@@ -639,7 +639,10 @@
                         </select>
                     </div>
                     <div class="form-row">
-                        <input type="date" name="date" id="bookingDate" placeholder="اختر التاريخ" min="" required>
+                        <div class="date-input-container">
+                            <input type="date" name="date" id="bookingDate" data-placeholder="اختر التاريخ" min="" required>
+                            <span class="date-placeholder">اختر التاريخ</span>
+                        </div>
                         <select name="time" id="bookingTime" required>
                             <option value="" disabled selected>الوقت المفضل</option>
                             <option value="morning">صباحاً (9-12)</option>

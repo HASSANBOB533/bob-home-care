@@ -4542,3 +4542,458 @@ section {
         display: flex !important;
     }
 }
+
+/* ============================================
+   MOBILE BLOG CAROUSEL - SAVE SPACE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .blog-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 15px;
+        padding: 10px 0;
+        margin: 0 -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .blog-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .blog-grid .blog-card {
+        flex: 0 0 85%;
+        min-width: 280px;
+        max-width: 320px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+    
+    .blog-card {
+        margin-bottom: 0;
+    }
+    
+    .blog-image {
+        height: 160px;
+    }
+    
+    .blog-content {
+        padding: 15px;
+    }
+    
+    .blog-title {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+    
+    .blog-excerpt {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-grid .blog-card {
+        flex: 0 0 90%;
+        min-width: 260px;
+    }
+    
+    .blog-image {
+        height: 140px;
+    }
+}
+
+/* ============================================
+   DATE INPUT PLACEHOLDER FIX
+   ============================================ */
+
+/* Date input with visible placeholder */
+input[type="date"] {
+    position: relative;
+}
+
+input[type="date"]:before {
+    content: attr(data-placeholder);
+    color: #999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 15px;
+    pointer-events: none;
+    background: white;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before,
+input[type="date"].has-value:before {
+    display: none;
+}
+
+/* Alternative approach - use wrapper with label */
+.date-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.date-input-container input[type="date"] {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    background: white;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.date-input-container input[type="date"]:focus,
+.date-input-container input[type="date"]:valid {
+    color: #333;
+}
+
+.date-input-container .date-placeholder {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.date-input-container input[type="date"]:focus + .date-placeholder,
+.date-input-container input[type="date"]:valid + .date-placeholder {
+    display: none;
+}
+
+/* Mobile date input optimization */
+@media (max-width: 768px) {
+    .booking-form input[type="date"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        min-height: 50px;
+        padding: 14px 16px;
+        font-size: 16px;
+        width: 100%;
+        background: white;
+        border: 2px solid #e1e8ed;
+        border-radius: 10px;
+        color: #333;
+    }
+    
+    /* Show date picker icon */
+    .booking-form input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        cursor: pointer;
+        padding: 5px;
+        background: transparent;
+        position: relative;
+    }
+}
+
+/* ============================================
+   REDUCED WHITE SPACES - MOBILE OPTIMIZATION
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Reduce section padding */
+    .hero {
+        padding: 15px 0 20px;
+    }
+    
+    .about,
+    .services,
+    .gallery,
+    .blog,
+    .testimonials,
+    .video-section,
+    .gallery-carousel-section,
+    .contact {
+        padding: 25px 0;
+    }
+    
+    /* Reduce container padding */
+    .container {
+        padding: 0 12px;
+    }
+    
+    /* Reduce section title margins */
+    section h2 {
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+    }
+    
+    section > .container > p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero section compact */
+    .hero-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+    
+    .hero-badges {
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+    
+    .badge {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .hero-image {
+        margin-top: 10px;
+    }
+    
+    .team-photo {
+        max-height: 280px;
+        border-radius: 15px;
+    }
+    
+    /* Features compact */
+    .features {
+        gap: 12px;
+        margin-top: 15px;
+    }
+    
+    .feature {
+        padding: 12px;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .feature h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .feature p {
+        font-size: 0.85rem;
+    }
+    
+    /* Services compact */
+    .services-grid {
+        gap: 10px;
+    }
+    
+    .service-card {
+        padding: 15px;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .service-card h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .service-card p {
+        font-size: 0.85rem;
+    }
+    
+    /* Gallery compact */
+    .before-after-gallery {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .transformation-title {
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+    
+    .team-section {
+        margin-top: 20px;
+    }
+    
+    .team-photo-large {
+        height: 250px;
+    }
+    
+    /* Testimonials compact */
+    .testimonial-card {
+        padding: 15px;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .stars {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Contact compact */
+    .contact-info {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-item {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .booking-section {
+        padding: 20px 15px;
+    }
+    
+    .booking-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .booking-form .form-row {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .submit-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    
+    .booking-info {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    
+    .booking-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .booking-info ul {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .emergency-contact {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    /* Video section compact */
+    .video-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .video-features li {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer compact */
+    .footer {
+        padding: 20px 0 15px;
+        margin-top: 20px;
+    }
+    
+    .footer-content {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even more compact for small screens */
+    .hero {
+        padding: 10px 0 15px;
+    }
+    
+    .about,
+    .services,
+    .gallery,
+    .blog,
+    .testimonials,
+    .video-section,
+    .gallery-carousel-section,
+    .contact {
+        padding: 20px 0;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.3rem;
+    }
+    
+    .team-photo {
+        max-height: 240px;
+    }
+    
+    .booking-section {
+        padding: 15px 12px;
+    }
+    
+    .footer {
+        padding: 15px 0 10px;
+    }
+}
