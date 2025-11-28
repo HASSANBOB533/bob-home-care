@@ -227,17 +227,57 @@ function initFormSubmission() {
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            // Get form elements
+            const nameInput = bookingForm.querySelector('input[name="name"]');
+            const phoneInput = bookingForm.querySelector('input[name="phone"]');
+            const emailInput = bookingForm.querySelector('input[name="email"]');
+            const serviceSelect = bookingForm.querySelector('select[name="service"]');
+            const dateInput = bookingForm.querySelector('input[name="date"]');
+            const timeSelect = bookingForm.querySelector('select[name="time"]');
+            const addressInput = bookingForm.querySelector('input[name="address"]');
+            const notesTextarea = bookingForm.querySelector('textarea[name="notes"]');
+            
+            // Get the selected option text to find the value
+            let serviceValue = serviceSelect.value;
+            let timeValue = timeSelect.value;
+            
+            // If select values are empty, try to get from selected option
+            if (!serviceValue && serviceSelect.selectedIndex > 0) {
+                serviceValue = serviceSelect.options[serviceSelect.selectedIndex].value || 'airbnb';
+            }
+            if (!timeValue && timeSelect.selectedIndex > 0) {
+                timeValue = timeSelect.options[timeSelect.selectedIndex].value || 'morning';
+            }
+            
+            // Create data object from direct element access
+            const data = {
+                name: nameInput.value.trim(),
+                phone: phoneInput.value.trim(),
+                email: emailInput.value.trim(),
+                service: serviceValue,
+                date: dateInput.value,
+                time: timeValue,
+                address: addressInput.value.trim(),
+                notes: notesTextarea.value.trim()
+            };
+            
+            // Debug: Log form data
+            console.log('Form data:', data);
+            console.log('Service select value:', serviceValue);
+            console.log('Time select value:', timeValue);
+            console.log('Service selectedIndex:', serviceSelect.selectedIndex);
+            console.log('Time selectedIndex:', timeSelect.selectedIndex);
             
             // Validate required fields
             const requiredFields = ['name', 'phone', 'service', 'date', 'time', 'address'];
-            const missingFields = requiredFields.filter(field => !data[field]);
+            const missingFields = requiredFields.filter(field => !data[field] || data[field] === '');
             
             if (missingFields.length > 0) {
+                const missingFieldsText = missingFields.join(', ');
+                console.error('Missing fields:', missingFieldsText);
                 alert(currentLang === 'ar' ? 
-                    'يرجى ملء جميع الحقول المطلوبة' : 
-                    'Please fill all required fields');
+                    `يرجى ملء جميع الحقول المطلوبة: ${missingFieldsText}` : 
+                    `Please fill all required fields: ${missingFieldsText}`);
                 return;
             }
             
@@ -291,9 +331,15 @@ Thank you!`;
                 'تم إرسال طلب الحجز! سيتم توجيهك إلى WhatsApp الآن' : 
                 'Booking request sent! You will be redirected to WhatsApp now');
             
-            // Open WhatsApp
+            // Redirect to WhatsApp
             const whatsappUrl = `https://wa.me/201273518887?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            console.log('WhatsApp URL:', whatsappUrl);
+            console.log('Redirecting to WhatsApp...');
+            
+            // Use a small delay to ensure the alert is shown before redirect
+            setTimeout(() => {
+                window.location.href = whatsappUrl;
+            }, 500);
             
             // Reset form
             this.reset();
