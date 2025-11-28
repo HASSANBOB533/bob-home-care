@@ -3863,3 +3863,102 @@ body.menu-open {
         --navbar-height: 56px;
     }
 }
+
+/* ============================================
+   COMPREHENSIVE MOBILE OPTIMIZATION
+   ============================================ */
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Touch-friendly tap targets */
+button, a, input, select, .clickable {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Fix images overflowing */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* RTL specific fixes */
+[dir="rtl"] .nav-menu {
+    right: -100%;
+    left: auto;
+}
+
+[dir="rtl"] .nav-menu.active {
+    right: 0;
+}
+
+/* Safe area for notched phones */
+.navbar {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+main {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Fix z-index stacking issues */
+.navbar {
+    z-index: 999;
+}
+
+.nav-menu {
+    z-index: 1000;
+}
+
+.overlay {
+    z-index: 998;
+}
+
+.modal, .lightbox {
+    z-index: 1001;
+}
+
+/* Additional mobile optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Prevent text selection on long press */
+body {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Allow text selection in inputs and textareas */
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+/* Viewport meta tag optimization */
+@viewport {
+    width: device-width;
+    zoom: 1;
+}
+
+/* Fix font size on mobile */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    button, a, input, select, .clickable {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 16px;
+    }
+}
