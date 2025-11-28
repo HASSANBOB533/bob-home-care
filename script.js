@@ -709,17 +709,25 @@ function initTestimonialsCarousel() {
         if (e.key === 'ArrowLeft') prevSlide();
     });
     
-    // Touch/Swipe support
+    // Touch/Swipe support with horizontal scroll
+    let isScrolling = false;
+    
     track.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        isScrolling = true;
         clearInterval(autoplayInterval);
-    });
+    }, { passive: true });
+    
+    track.addEventListener('touchmove', (e) => {
+        if (!isScrolling) return;
+    }, { passive: true });
     
     track.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
+        isScrolling = false;
         handleSwipe();
         startAutoplay();
-    });
+    }, { passive: true });
     
     function handleSwipe() {
         const swipeThreshold = 50;
