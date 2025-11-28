@@ -6,6 +6,7 @@
     <title>دليل شامل لتنظيف المطبخ بمعايير الضيافة - BOB Home Care</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <img src="images/ChatGPTImageNov24,2025,05_56_54PM.webp" alt="BOB Logo" class="header-logo">
+                <img loading="lazy" src="images/ChatGPTImageNov24,2025,05_56_54PM.webp" alt="BOB Logo" class="header-logo">
             </div>
             <div class="header-center">
                 <h1>BOB Home Care</h1>
@@ -43,7 +44,7 @@
                         <span class="post-category">نصائح التنظيف</span>
                     </div>
                     <h1 class="post-title">دليل شامل لتنظيف المطبخ بمعايير الضيافة</h1>
-                    <img src="images/Housekeeping-18.webp" alt="تنظيف المطبخ" class="post-image">
+                    <img loading="lazy" src="images/Housekeeping-18.webp" alt="تنظيف المطبخ" class="post-image">
                 </header>
 
                 <div class="post-body">
@@ -151,6 +152,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="sw-register.js"></script>
+    <script src="lazy-load.js"></script>
 </body>
 </html>
 
