@@ -1912,3 +1912,219 @@ body {
         margin-bottom: 20px;
     }
 }
+
+
+/* Social Media Icons */
+.social-icons-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.social-icons-footer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.social-icon:hover::before {
+    left: 100%;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Header social icons smaller size */
+.social-icons-header .social-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.social-icons-header .social-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    padding: 60px 0 20px;
+    margin-top: 60px;
+    border-top: 3px solid #00a66a;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #00a66a;
+    font-weight: 700;
+}
+
+.footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.footer-section p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #00a66a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-section a:hover {
+    color: #00d084;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .social-icons-header {
+        gap: 8px;
+    }
+    
+    .social-icons-header .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-icons-header .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .social-icons-footer {
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .social-icons-footer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons-header {
+        gap: 6px;
+    }
+    
+    .social-icons-header .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-icons-header .social-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+}
