@@ -554,20 +554,42 @@ class ImageCarousel {
    MOBILE MENU FUNCTIONALITY
    ============================================ */
 
-// Mobile Menu Toggle
+// Mobile Menu Toggle - Enhanced with error handling and debugging
 function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
-    const mobileMenuOverlay = document.createElement('div');
     
-    // Create overlay element
-    mobileMenuOverlay.className = 'mobile-menu-overlay';
-    document.body.appendChild(mobileMenuOverlay);
+    // Debug logging
+    console.log('Mobile Menu Init:', {
+        toggle: !!mobileMenuToggle,
+        close: !!mobileMenuClose,
+        menu: !!mobileMenu,
+        links: mobileNavLinks.length
+    });
+    
+    // Check if elements exist
+    if (!mobileMenuToggle || !mobileMenu) {
+        console.error('Mobile menu elements not found!');
+        return;
+    }
+    
+    // Create or find overlay element
+    let mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    if (!mobileMenuOverlay) {
+        mobileMenuOverlay = document.createElement('div');
+        mobileMenuOverlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(mobileMenuOverlay);
+    }
     
     // Toggle menu open/close
-    function toggleMenu() {
+    function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('Toggle clicked!');
+        
         const isActive = mobileMenu.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active', isActive);
         mobileMenuOverlay.classList.toggle('active', isActive);
@@ -581,33 +603,63 @@ function initMobileMenu() {
     }
     
     // Close menu
-    function closeMenu() {
+    function closeMenu(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
         mobileMenu.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
         mobileMenuOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
     
-    // Event listeners
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', toggleMenu);
+    // Event listeners with error handling
+    try {
+        mobileMenuToggle.addEventListener('click', toggleMenu, { passive: false });
+        console.log('Toggle click listener added');
+    } catch (e) {
+        console.error('Error adding toggle listener:', e);
     }
     
     if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', closeMenu);
+        try {
+            mobileMenuClose.addEventListener('click', closeMenu, { passive: false });
+            console.log('Close click listener added');
+        } catch (e) {
+            console.error('Error adding close listener:', e);
+        }
     }
     
     // Close menu when clicking overlay
-    mobileMenuOverlay.addEventListener('click', closeMenu);
+    try {
+        mobileMenuOverlay.addEventListener('click', closeMenu, { passive: false });
+        console.log('Overlay click listener added');
+    } catch (e) {
+        console.error('Error adding overlay listener:', e);
+    }
     
     // Close menu when clicking a navigation link
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+    mobileNavLinks.forEach((link, index) => {
+        try {
+            link.addEventListener('click', closeMenu, { passive: false });
+        } catch (e) {
+            console.error(`Error adding listener to link ${index}:`, e);
+        }
     });
+    console.log('Navigation link listeners added');
     
     // Close menu on window resize (when going from mobile to desktop)
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
             closeMenu();
         }
     });

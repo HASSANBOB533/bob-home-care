@@ -2318,6 +2318,12 @@ body {
    ============================================ */
 
 /* Hamburger Menu Toggle Button */
+
+/* ============================================
+   MOBILE MENU FIX - POINTER EVENTS & Z-INDEX
+   ============================================ */
+
+/* Ensure mobile menu toggle is clickable */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -2326,7 +2332,16 @@ body {
     cursor: pointer;
     padding: 8px;
     gap: 5px;
-    z-index: 10000;
+    z-index: 10001;
+    pointer-events: auto !important;
+    position: relative;
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-toggle:active {
+    opacity: 0.7;
 }
 
 .mobile-menu-toggle span {
@@ -2335,31 +2350,12 @@ body {
     background: white;
     border-radius: 2px;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
-.mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Logo Wrapper */
-.header-logo-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
-
-/* Mobile Menu Slide-in */
+/* Mobile menu styling */
 .mobile-menu {
-    display: none;
+    display: none !important;
     position: fixed;
     top: 0;
     right: -100%;
@@ -2371,12 +2367,56 @@ body {
     transition: right 0.3s ease;
     overflow-y: auto;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
 }
 
 .mobile-menu.active {
-    right: 0;
+    right: 0 !important;
+    pointer-events: auto;
 }
 
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 9998;
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.mobile-menu-overlay.active {
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+}
+
+/* Mobile menu close button */
+.mobile-menu-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.mobile-menu-close:active {
+    transform: scale(0.9);
+}
+
+/* Mobile menu header */
 .mobile-menu-header {
     display: flex;
     justify-content: flex-start;
@@ -2385,113 +2425,94 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.mobile-menu-close {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu-close:hover {
-    transform: scale(1.2);
-}
-
+/* Mobile menu content */
 .mobile-menu-content {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 0;
+    gap: 15px;
 }
 
+/* Mobile nav links */
 .mobile-nav-link {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
     font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: block;
-}
-
-.mobile-nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    padding-right: 30px;
-}
-
-.mobile-book-btn {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    padding: 12px 16px;
     border-radius: 8px;
     transition: all 0.3s ease;
-    margin: 20px 0;
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.mobile-nav-link:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile book button */
+.mobile-book-btn {
+    background: white;
+    color: #00a66a;
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 8px;
     text-align: center;
-    display: block;
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
 }
 
-.mobile-book-btn:hover {
-    background: linear-gradient(45deg, #ff5252, #ff7979);
-    transform: scale(1.05);
+.mobile-book-btn:active {
+    opacity: 0.8;
 }
 
+/* Mobile social icons */
 .mobile-social-icons {
     display: flex;
     gap: 15px;
+    padding: 20px 16px;
     justify-content: center;
-    margin-top: 30px;
-    padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobile-social-icon {
+    color: white;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    color: white;
+    cursor: pointer;
     transition: all 0.3s ease;
+    pointer-events: auto;
 }
 
-.mobile-social-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
+.mobile-social-icon:active {
+    transform: scale(0.9);
 }
 
-.mobile-social-icon:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-/* Mobile Overlay */
-.mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
-}
-
-.mobile-menu-overlay.active {
-    display: block;
+/* Media query for mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    
+    .mobile-menu {
+        display: none !important;
+    }
+    
+    .mobile-menu.active {
+        display: block !important;
+    }
 }
 
 /* ============================================
