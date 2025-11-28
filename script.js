@@ -554,132 +554,100 @@ class ImageCarousel {
    MOBILE MENU FUNCTIONALITY
    ============================================ */
 
-// BULLETPROOF MOBILE MENU - FINAL VERSION
-// This uses inline styles to override any CSS conflicts
+// NEW MINIMAL MOBILE MENU - SIMPLE IMPLEMENTATION
 function initMobileMenu() {
-    console.log('=== BULLETPROOF MOBILE MENU ===');
+    console.log('=== INITIALIZING NEW MOBILE MENU ===');
     
     // Get elements
-    const toggle = document.getElementById('mobileMenuToggle');
-    const menu = document.getElementById('mobileMenu');
-    const close = document.getElementById('mobileMenuClose');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    const links = document.querySelectorAll('.mobile-nav-link, .mobile-book-btn');
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const menuContainer = document.getElementById('mobileMenuContainer');
+    const closeBtn = document.getElementById('mobileMenuCloseBtn');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const menuLinks = document.querySelectorAll('.mobile-menu-link');
     
-    console.log('Toggle:', !!toggle, 'Menu:', !!menu, 'Close:', !!close, 'Overlay:', !!overlay);
-    
-    if (!toggle || !menu) {
-        console.error('ERROR: Required elements missing!');
+    // Check if elements exist
+    if (!menuBtn || !menuContainer || !closeBtn || !backdrop) {
+        console.error('ERROR: Mobile menu elements not found!');
+        console.log('menuBtn:', !!menuBtn);
+        console.log('menuContainer:', !!menuContainer);
+        console.log('closeBtn:', !!closeBtn);
+        console.log('backdrop:', !!backdrop);
         return;
     }
     
-    // Set initial inline styles on menu to ensure visibility
-    menu.style.position = 'fixed';
-    menu.style.top = '0';
-    menu.style.right = '-100%';
-    menu.style.width = '100%';
-    menu.style.maxWidth = '85vw';
-    menu.style.height = '100vh';
-    menu.style.background = 'linear-gradient(135deg, #00a66a 0%, #00d084 100%)';
-    menu.style.zIndex = '9999';
-    menu.style.transition = 'right 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-    menu.style.overflowY = 'auto';
-    menu.style.boxShadow = '-2px 0 10px rgba(0, 0, 0, 0.3)';
-    menu.style.paddingTop = '0';
-    menu.style.display = 'block'; // Force display
+    console.log('✓ All menu elements found');
     
-    console.log('Menu inline styles set');
-    
-    // Create or find overlay
-    let backdropOverlay = overlay;
-    if (!backdropOverlay) {
-        backdropOverlay = document.createElement('div');
-        backdropOverlay.className = 'mobile-menu-overlay';
-        document.body.appendChild(backdropOverlay);
-    }
-    
-    // Set overlay inline styles
-    backdropOverlay.style.position = 'fixed';
-    backdropOverlay.style.top = '0';
-    backdropOverlay.style.left = '0';
-    backdropOverlay.style.width = '100%';
-    backdropOverlay.style.height = '100%';
-    backdropOverlay.style.background = 'rgba(0, 0, 0, 0)';
-    backdropOverlay.style.zIndex = '9998';
-    backdropOverlay.style.transition = 'background 0.4s ease';
-    backdropOverlay.style.pointerEvents = 'none';
-    backdropOverlay.style.display = 'block';
-    
-    console.log('Overlay inline styles set');
-    
-    // Functions
+    // Open menu function
     function openMenu() {
-        console.log('>>> OPENING MENU');
-        menu.style.right = '0';
-        backdropOverlay.style.background = 'rgba(0, 0, 0, 0.5)';
-        backdropOverlay.style.pointerEvents = 'auto';
-        toggle.classList.add('active');
+        console.log('Opening menu...');
+        menuContainer.classList.add('open');
+        backdrop.classList.add('open');
+        menuBtn.classList.add('active');
         document.body.style.overflow = 'hidden';
-        console.log('Menu opened - right:', menu.style.right);
+        console.log('Menu opened');
     }
     
+    // Close menu function
     function closeMenu() {
-        console.log('>>> CLOSING MENU');
-        menu.style.right = '-100%';
-        backdropOverlay.style.background = 'rgba(0, 0, 0, 0)';
-        backdropOverlay.style.pointerEvents = 'none';
-        toggle.classList.remove('active');
+        console.log('Closing menu...');
+        menuContainer.classList.remove('open');
+        backdrop.classList.remove('open');
+        menuBtn.classList.remove('active');
         document.body.style.overflow = '';
-        console.log('Menu closed - right:', menu.style.right);
+        console.log('Menu closed');
     }
     
+    // Toggle menu function
     function toggleMenu(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('TOGGLE CLICKED');
+        console.log('Toggle clicked');
         
-        if (menu.style.right === '0' || menu.style.right === '0px') {
+        if (menuContainer.classList.contains('open')) {
             closeMenu();
         } else {
             openMenu();
         }
     }
     
-    // Event listeners
-    toggle.addEventListener('click', toggleMenu);
-    console.log('Toggle listener added');
+    // Add event listeners
+    menuBtn.addEventListener('click', toggleMenu);
+    console.log('✓ Menu button listener added');
     
-    if (close) {
-        close.addEventListener('click', closeMenu);
-        console.log('Close listener added');
-    }
+    closeBtn.addEventListener('click', closeMenu);
+    console.log('✓ Close button listener added');
     
-    backdropOverlay.addEventListener('click', closeMenu);
-    console.log('Overlay listener added');
+    backdrop.addEventListener('click', closeMenu);
+    console.log('✓ Backdrop listener added');
     
-    links.forEach((link, i) => {
+    // Close menu when clicking on links
+    menuLinks.forEach((link, index) => {
         link.addEventListener('click', () => {
-            console.log('Link', i, 'clicked');
+            console.log('Link clicked:', index);
             closeMenu();
         });
     });
-    console.log('Link listeners added');
+    console.log('✓ Menu link listeners added');
     
-    // Keyboard
+    // Close menu on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && (menu.style.right === '0' || menu.style.right === '0px')) {
+        if (e.key === 'Escape' && menuContainer.classList.contains('open')) {
+            console.log('Escape key pressed');
             closeMenu();
         }
     });
+    console.log('✓ Escape key listener added');
     
-    // Resize
+    // Close menu on window resize (when going from mobile to desktop)
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 768 && menuContainer.classList.contains('open')) {
+            console.log('Window resized to desktop, closing menu');
             closeMenu();
         }
     });
+    console.log('✓ Resize listener added');
     
-    console.log('=== MENU READY ===');
+    console.log('=== NEW MOBILE MENU READY ===');
 }
 
 // Update mobile menu text when language changes
