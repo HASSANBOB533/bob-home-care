@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent Debug & Reset</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #e53e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 101, 101, 0.4);
+        }
+        
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+        
+        .status-box {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .status-box.error {
+            border-left-color: #f56565;
+            background: #fff5f5;
+        }
+        
+        .status-box.success {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+        
+        .info-text {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .step {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍪 Cookie Consent Debug</h1>
+        <p class="subtitle">Test and troubleshoot the cookie consent banner</p>
+        
+        <div class="section">
+            <h2>📊 Current Status</h2>
+            <div id="status" class="status-box">
+                Loading...
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔧 Quick Actions</h2>
+            <div class="button-group">
+                <button class="btn-danger" onclick="resetCookieConsent()">Reset Consent</button>
+                <button class="btn-success" onclick="testBanner()">Test Banner</button>
+                <button class="btn-primary" onclick="refreshStatus()">Refresh Status</button>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Test Steps</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Click "Reset Consent"</strong> to clear localStorage
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Click "Test Banner"</strong> to open the main site
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Look for the banner</strong> at the bottom of the page
+            </div>
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Test the buttons:</strong> Accept All, Reject All, Manage Preferences
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💡 What to Expect</h2>
+            <p class="info-text">
+                ✓ Banner should appear at the <strong>bottom of the page</strong><br>
+                ✓ Banner should have <strong>Accept All</strong> and <strong>Reject All</strong> buttons<br>
+                ✓ After clicking, banner should <strong>not reappear</strong> on refresh<br>
+                ✓ localStorage should contain <strong>bob-home-care-cookie-consent</strong> key
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function getStatus() {
+            const consent = localStorage.getItem('bob-home-care-cookie-consent');
+            const hasConsent = consent !== null;
+            
+            let status = `
+Timestamp: ${new Date().toLocaleString()}
+
+localStorage Status:
+- Key exists: ${hasConsent ? '✓ YES' : '✗ NO'}
+- Key name: bob-home-care-cookie-consent
+${consent ? `- Value: ${consent}` : '- Value: (empty)'}
+
+Script Status:
+- cookie-consent.js: ${typeof window.CookieConsent !== 'undefined' ? '✓ Loaded' : '✗ Not loaded'}
+- cookie-consent.css: ${document.querySelector('link[href*="cookie-consent.css"]') ? '✓ Loaded' : '✗ Not loaded'}
+
+Browser Info:
+- Language: ${document.documentElement.lang || 'not set'}
+- localStorage available: ${typeof(Storage) !== 'undefined' ? '✓ YES' : '✗ NO'}
+            `;
+            
+            return status.trim();
+        }
+        
+        function refreshStatus() {
+            const statusEl = document.getElementById('status');
+            const status = getStatus();
+            statusEl.textContent = status;
+            
+            // Add color coding
+            if (status.includes('✓')) {
+                statusEl.className = 'status-box success';
+            } else if (status.includes('✗')) {
+                statusEl.className = 'status-box error';
+            }
+        }
+        
+        function resetCookieConsent() {
+            localStorage.removeItem('bob-home-care-cookie-consent');
+            alert('✓ Cookie consent has been reset!\n\nNow click "Test Banner" to see the banner appear.');
+            refreshStatus();
+        }
+        
+        function testBanner() {
+            window.open('https://bob-home-care.vercel.app/', '_blank');
+        }
+        
+        // Initial status on page load
+        window.addEventListener('load', refreshStatus);
+    </script>
+</body>
+</html>
