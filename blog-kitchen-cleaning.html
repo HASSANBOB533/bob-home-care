@@ -40,10 +40,16 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header blog-header">
         <div class="header-container">
+            <!-- Mobile Home Button -->
+            <a href="index.html" class="mobile-home-btn" aria-label="العودة للرئيسية" style="display: none; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: #1abc9c; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 14px; z-index: 100;">
+                ← الرئيسية
+            </a>
             <div class="header-left">
-                <img loading="lazy" src="images/bob-logo-new.webp" alt="BOB Logo" class="header-logo">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img loading="lazy" src="images/bob-logo-new.webp" alt="BOB Logo" class="header-logo">
+                </a>
             </div>
             <div class="header-center">
                 <h1>BOB Home Care</h1>
@@ -62,6 +68,43 @@
             </div>
         </div>
     </header>
+    
+    <style>
+        /* Blog Mobile Header Fixes */
+        @media (max-width: 768px) {
+            .blog-header {
+                padding: 10px 15px !important;
+                min-height: auto !important;
+            }
+            .blog-header .header-container {
+                position: relative;
+                padding: 0 !important;
+            }
+            .blog-header .mobile-home-btn {
+                display: block !important;
+            }
+            .blog-header .header-left {
+                margin-right: auto;
+            }
+            .blog-header .header-center {
+                display: none !important;
+            }
+            .blog-header .header-right {
+                display: none !important;
+            }
+            .blog-post {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+            .blog-post .container {
+                padding-top: 20px !important;
+            }
+            .post-header {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+        }
+    </style>
 
     <!-- Blog Post Content -->
     <main class="blog-post">
