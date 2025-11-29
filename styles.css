@@ -829,6 +829,12 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 166, 106, 0.2);
     background: #000;
+    min-height: 300px;
+}
+
+.video-wrapper.loaded {
+    height: auto;
+    padding-bottom: 0;
 }
 
 .video-wrapper iframe {

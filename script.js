@@ -809,14 +809,23 @@ function initLazyVideo() {
     const videoPlayBtn = document.getElementById('videoPlayBtn');
     const youtubeIframe = document.getElementById('youtubeIframe');
     const videoThumbnail = document.querySelector('.video-thumbnail');
+    const videoWrapper = document.getElementById('lazyVideoWrapper');
     
     if (!videoPlayBtn || !youtubeIframe) return;
     
     function loadVideo() {
-        youtubeIframe.src = 'https://www.youtube.com/embed/4ulJE0capWc?autoplay=1';
+        youtubeIframe.src = 'https://www.youtube.com/embed/4ulJE0capWc?autoplay=1&modestbranding=1&rel=0';
         youtubeIframe.style.display = 'block';
+        youtubeIframe.style.position = 'absolute';
+        youtubeIframe.style.top = '0';
+        youtubeIframe.style.left = '0';
+        youtubeIframe.style.width = '100%';
+        youtubeIframe.style.height = '100%';
         videoThumbnail.style.display = 'none';
         videoPlayBtn.style.display = 'none';
+        if (videoWrapper) {
+            videoWrapper.classList.add('loaded');
+        }
     }
     
     videoPlayBtn.addEventListener('click', loadVideo);
