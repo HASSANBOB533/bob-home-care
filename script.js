@@ -1024,7 +1024,6 @@ document.addEventListener('keydown', function(e) {
     const overlay = document.getElementById('menuOverlay');
     
     if (!menuBtn || !closeBtn || !mobileMenu || !overlay) {
-      console.error('Menu elements not found!');
       return;
     }
     
@@ -1036,7 +1035,7 @@ document.addEventListener('keydown', function(e) {
         menuBtn.style.gap = '5px';
       } else {
         menuBtn.style.display = 'none';
-        mobileMenu.style.left = '-100%';
+        mobileMenu.style.right = '-100%';
         overlay.style.display = 'none';
         document.body.classList.remove('menu-open');
       }
@@ -1047,18 +1046,16 @@ document.addEventListener('keydown', function(e) {
     
     // Open menu function
     function openMenu() {
-      mobileMenu.style.left = '0';
+      mobileMenu.style.right = '0';
       overlay.style.display = 'block';
       document.body.classList.add('menu-open');
-      console.log('✓ Menu opened');
     }
     
     // Close menu function
     function closeMenu() {
-      mobileMenu.style.left = '-100%';
+      mobileMenu.style.right = '-100%';
       overlay.style.display = 'none';
       document.body.classList.remove('menu-open');
-      console.log('✓ Menu closed');
     }
     
     // Toggle menu
@@ -1092,5 +1089,5 @@ document.addEventListener('keydown', function(e) {
         closeMenu();
       }
     });
-    console.log('✓ ULTRA-MINIMAL Mobile menu initialized successfully');
+
 })();
