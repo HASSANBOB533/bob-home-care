@@ -97,12 +97,12 @@
         
         <!-- ULTRA-MINIMAL MOBILE MENU - GUARANTEED TO WORK -->
         <!-- Menu Container -->
-        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: right 0.3s ease; overflow-y: auto; padding-top: 20px; padding-bottom: 100px; display: flex; flex-direction: column;">
+        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: right 0.3s ease; padding-top: 20px; display: flex; flex-direction: column;">
           <!-- Close Button -->
           <button id="closeBtn" style="position: absolute; top: 20px; left: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
           
           <!-- Menu Links -->
-          <nav style="display: flex; flex-direction: column; gap: 0; padding-right: 0; padding-left: 0; margin-top: 40px; flex: 1; overflow-y: auto;">
+          <nav style="display: flex; flex-direction: column; gap: 0; padding-right: 0; padding-left: 0; margin-top: 40px; flex: 1; overflow-y: auto; min-height: 0;">
             <a href="#home" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">الرئيسية</a>
             <a href="#about" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">من نحن</a>
             <a href="#services" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">خدماتنا</a>
@@ -111,9 +111,10 @@
             <a href="#contact" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">اتصل بنا</a>
             <a href="#contact" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px;">احجز الآن</a>
             
-            <!-- Language Toggle in Mobile Menu -->
-            <button id="langToggleMobile" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">EN / العربية</button>
           </nav>
+          
+          <!-- Language Toggle in Mobile Menu - Fixed at Bottom -->
+          <button id="langToggleMobile" style="color: white; padding: 15px 20px; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; border-top: 1px solid rgba(255,255,255,0.2); flex-shrink: 0;">EN / العربية</button>
         </div>
         
         <!-- Overlay Backdrop -->
