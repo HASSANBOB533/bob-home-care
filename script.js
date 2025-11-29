@@ -416,10 +416,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listener for mobile menu language toggle
     const langToggleMobile = document.getElementById('langToggleMobile');
     if (langToggleMobile) {
+        // Click event
         langToggleMobile.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             toggleLanguage();
+            console.log('Language toggle clicked');
+        });
+        
+        // Touch event for better mobile support
+        langToggleMobile.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleLanguage();
+            console.log('Language toggle touched');
         });
     }
     
