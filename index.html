@@ -720,6 +720,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 BOB Home Care. جميع الحقوق محفوظة. All rights reserved.</p>
+                <button id="reset-cookie-consent" style="margin-top: 10px; padding: 8px 16px; background-color: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">Reset Cookie Consent</button>
             </div>
         </div>
     </footer>
@@ -736,6 +737,22 @@
     <script defer src="sw-register.min.js"></script>
     <script defer src="lazy-load.min.js"></script>
     <script src="cookie-consent.js"></script>
+    <script>
+        // Add event listener to reset button
+        document.addEventListener('DOMContentLoaded', function() {
+            const resetBtn = document.getElementById('reset-cookie-consent');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    localStorage.removeItem('bob-home-care-cookie-consent');
+                    if (window.CookieConsent && window.CookieConsent.show) {
+                        window.CookieConsent.show();
+                    } else {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 
