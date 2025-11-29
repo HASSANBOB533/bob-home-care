@@ -97,7 +97,7 @@
         
         <!-- ULTRA-MINIMAL MOBILE MENU - GUARANTEED TO WORK -->
         <!-- Menu Container -->
-        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: right 0.3s ease; padding-top: 20px; display: flex; flex-direction: column;">
+        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; height: 100dvh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: right 0.3s ease; padding-top: 20px; display: flex; flex-direction: column;">
           <!-- Close Button -->
           <button id="closeBtn" style="position: absolute; top: 20px; left: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
           
@@ -112,8 +112,8 @@
             <a href="#contact" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">احجز الآن</a>
           </nav>
           
-          <!-- Language Toggle in Mobile Menu - Outside nav for guaranteed visibility -->
-          <button id="langToggleMobile" style="color: white; padding: 15px 20px; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; border-top: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; z-index: 10001; position: relative; transition: background 0.3s ease; margin: 0; font-family: inherit;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">EN / العربية</button>
+          <!-- Language Toggle in Mobile Menu - Fixed at bottom with safe area support -->
+          <button id="langToggleMobile" style="color: white; padding: 15px 20px; padding-bottom: calc(15px + env(safe-area-inset-bottom, 0px)); font-size: 16px; border: none; background: rgba(0,0,0,0.2); cursor: pointer; width: 100%; text-align: center; border-top: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; z-index: 10001; position: sticky; bottom: 0; transition: background 0.3s ease; margin: 0; font-family: inherit; font-weight: 600;" onmouseover="this.style.background='rgba(0,0,0,0.3)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">EN / العربية</button>
         </div>
         
         <!-- Overlay Backdrop -->

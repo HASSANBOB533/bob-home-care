@@ -330,13 +330,37 @@ Thank you!`;
             console.log(whatsappUrl);
             console.log('=== REDIRECTING TO WHATSAPP ===');
             
-            // Show success message
-            alert(currentLang === 'ar' ? 
-                'تم إرسال طلب الحجز! سيتم توجيهك إلى WhatsApp الآن' : 
-                'Booking request sent! You will be redirected to WhatsApp now');
+            // Show visual success message by replacing the form
+            const bookingSection = bookingForm.closest('.booking-section');
+            if (bookingSection) {
+                // Create success message element
+                const successMessage = document.createElement('div');
+                successMessage.id = 'formSuccessMessage';
+                successMessage.style.cssText = 'text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-radius: 15px; margin: 20px 0;';
+                successMessage.innerHTML = currentLang === 'ar' ? `
+                    <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+                    <h3 style="color: #155724; font-size: 1.5rem; margin-bottom: 15px;">تم إرسال طلب الحجز بنجاح!</h3>
+                    <p style="color: #155724; font-size: 1.1rem; margin-bottom: 20px;">سيتم توجيهك إلى WhatsApp للتواصل معنا مباشرة.</p>
+                    <p style="color: #666; font-size: 0.95rem;">سيتم التواصل معك خلال ساعة لتأكيد الحجز.</p>
+                ` : `
+                    <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+                    <h3 style="color: #155724; font-size: 1.5rem; margin-bottom: 15px;">Booking Request Submitted Successfully!</h3>
+                    <p style="color: #155724; font-size: 1.1rem; margin-bottom: 20px;">You will be redirected to WhatsApp to contact us directly.</p>
+                    <p style="color: #666; font-size: 0.95rem;">We will contact you within an hour to confirm your booking.</p>
+                `;
+                
+                // Hide the form and show success message
+                bookingForm.style.display = 'none';
+                bookingForm.insertAdjacentElement('afterend', successMessage);
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
             
-            // Redirect immediately
-            window.location.href = whatsappUrl;
+            // Open WhatsApp in a new tab after a short delay
+            setTimeout(function() {
+                window.open(whatsappUrl, '_blank');
+            }, 1500);
         });
     } else {
         console.error('Booking form not found!');
