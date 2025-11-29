@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOB Home Care – خدمات تنظيف منزلية احترافية بمعايير الضيافة الفندقية</title>
     <meta name="description" content="خدمات تنظيف موثوقة للمنازل والمكاتب وشقق Airbnb بأعلى معايير الجودة في القاهرة والجيزة والإسكندرية.">
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.min.css">
     <link rel="stylesheet" href="cookie-consent.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/webp" href="images/favicon.webp">
@@ -35,7 +42,19 @@
     <!-- WhatsApp & Telegram Meta Tags -->
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:secure_url" content="https://bobhomecare.com/images/social-preview-v3.jpg?v=4">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Security and Performance Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#00a66a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BOB Home Care">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+    <!-- Inline Critical CSS for faster rendering -->
+    <style>
+        :root{--navbar-height:60px;--header-text-color:white}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cairo',sans-serif;line-height:1.6;color:#333;direction:rtl;overflow-x:hidden;padding-top:var(--navbar-height)}.container{max-width:1200px;margin:0 auto;padding:0 20px}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}.header{background:linear-gradient(135deg,#00a66a 0%,#00d084 100%);color:white;padding:8px 0;box-shadow:0 10px 30px rgba(0,166,106,.3);position:fixed;top:0;right:0;left:0;z-index:100;animation:fadeInUp .8s ease-out;min-height:var(--navbar-height);height:var(--navbar-height)}.header-container{display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;padding:8px 30px;gap:15px;min-height:60px}.header-left{flex-shrink:0;display:flex;align-items:center;justify-content:flex-start;min-width:auto}.header-center{flex:0 0 auto;text-align:center;min-width:auto;margin:0 15px}.header-center h1{font-size:24px;font-weight:700;margin:0}.header-right{flex-shrink:0;display:flex;align-items:center;justify-content:flex-end;gap:15px;min-width:auto}.hero{background:linear-gradient(135deg,#00a66a 0%,#008c52 100%);color:white;padding:60px 20px;min-height:500px;display:flex;align-items:center}.hero-container{max-width:1400px;margin:0 auto;width:100%}.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.hero-text h2{font-size:32px;font-weight:700;margin-bottom:15px;line-height:1.3}.hero-text p{font-size:16px;margin-bottom:20px;opacity:.95}.hero-badges{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap}.badge{background-color:rgba(255,255,255,.2);color:white;padding:8px 15px;border-radius:20px;font-size:13px;font-weight:600}.cta-button{display:inline-block;background-color:#ff6b6b;color:white;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:600;font-size:14px;transition:background-color .3s ease}.cta-button:hover{background-color:#ff5252}.team-photo{max-width:100%;height:auto;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.2)}.whatsapp-button{position:fixed;bottom:25px;right:25px;width:60px;height:60px;background-color:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;font-size:28px;box-shadow:0 4px 12px rgba(37,211,102,.4);transition:all .3s ease;z-index:999;animation:float 3s ease-in-out infinite}.whatsapp-button:hover{transform:scale(1.15);box-shadow:0 6px 20px rgba(37,211,102,.6)}@media(max-width:768px){.hero-content{grid-template-columns:1fr;gap:20px}.hero-text h2{font-size:24px}.hero-text p{font-size:14px}.whatsapp-button{width:50px;height:50px;bottom:20px;right:20px;font-size:24px}}@media(max-width:480px){.hero{padding:30px 15px;min-height:300px}.hero-text h2{font-size:20px}.hero-text p{font-size:13px}.cta-button{padding:10px 20px;font-size:13px}.whatsapp-button{width:45px;height:45px;bottom:15px;right:15px;font-size:20px}}
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -91,7 +110,7 @@
                         </svg>
                     </a>
                 </div>
-                <button id="langToggle" class="lang-toggle">EN</button>
+                <button id="langToggle" class="lang-toggle" aria-label="تبديل اللغة">EN</button>
             </div>
         </div>
         
@@ -99,7 +118,7 @@
         <!-- Menu Container -->
         <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 9999; transition: right 0.3s ease; padding-top: 20px; display: flex; flex-direction: column;">
           <!-- Close Button -->
-          <button id="closeBtn" style="position: absolute; top: 20px; left: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
+            <button id="closeBtn" aria-label="إغلاق القائمة" style="position: absolute; top: 20px; left: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
           
           <!-- Menu Links -->
           <nav style="display: flex; flex-direction: column; gap: 0; padding-right: 0; padding-left: 0; margin-top: 40px; flex: 1; overflow-y: auto; min-height: 0;">
@@ -113,7 +132,7 @@
           </nav>
           
           <!-- Language Toggle in Mobile Menu - Outside nav for guaranteed visibility -->
-          <button id="langToggleMobile" style="color: white; padding: 15px 20px; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; border-top: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; z-index: 10001; position: relative; transition: background 0.3s ease; margin: 0; font-family: inherit;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">EN / العربية</button>
+            <button id="langToggleMobile" aria-label="تبديل اللغة" style="color: white; padding: 15px 20px; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; border-top: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; z-index: 10001; position: relative; transition: background 0.3s ease; margin: 0; font-family: inherit;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">EN / العربية</button>
         </div>
         
         <!-- Overlay Backdrop -->
@@ -239,11 +258,11 @@
                 <div class="transformation-item">
                     <div class="before-after-container">
                         <div class="before-image">
-                            <img loading="lazy" src="images/kitchen-before-new.webp" alt="غرفة معيشة قبل التنظيف">
+                            <img loading="lazy" src="images/kitchen-before-new.webp" alt="غرفة معيشة قبل التنظيف" width="400" height="300">
                             <span class="label before-label">قبل</span>
                         </div>
                         <div class="after-image">
-                            <img loading="lazy" src="images/Marina5-11.webp" alt="غرفة معيشة بعد التنظيف">
+                            <img loading="lazy" src="images/Marina5-11.webp" alt="غرفة معيشة بعد التنظيف" width="400" height="300">
                             <span class="label after-label">بعد</span>
                         </div>
                     </div>
@@ -254,11 +273,11 @@
                 <div class="transformation-item">
                     <div class="before-after-container">
                         <div class="before-image">
-                            <img loading="lazy" src="images/6c684ac7-1333-4668-88f2-fef817785c8c.webp" alt="مطبخ قبل التنظيف">
+                            <img loading="lazy" src="images/6c684ac7-1333-4668-88f2-fef817785c8c.webp" alt="مطبخ قبل التنظيف" width="400" height="300">
                             <span class="label before-label">قبل</span>
                         </div>
                         <div class="after-image">
-                            <img loading="lazy" src="images/ChaletMarina7-12.webp" alt="مطبخ بعد التنظيف">
+                            <img loading="lazy" src="images/ChaletMarina7-12.webp" alt="مطبخ بعد التنظيف" width="400" height="300">
                             <span class="label after-label">بعد</span>
                         </div>
                     </div>
@@ -269,11 +288,11 @@
                 <div class="transformation-item">
                     <div class="before-after-container">
                         <div class="before-image">
-                            <img loading="lazy" src="images/IMG_3140.webp" alt="غرفة نوم قبل التنظيف">
+                            <img loading="lazy" src="images/IMG_3140.webp" alt="غرفة نوم قبل التنظيف" width="400" height="300">
                             <span class="label before-label">قبل</span>
                         </div>
                         <div class="after-image">
-                            <img loading="lazy" src="images/Stella-30.webp" alt="غرفة نوم بعد التنظيف">
+                            <img loading="lazy" src="images/Stella-30.webp" alt="غرفة نوم بعد التنظيف" width="400" height="300">
                             <span class="label after-label">بعد</span>
                         </div>
                     </div>
@@ -301,7 +320,7 @@
             
             <div class="blog-grid">
                 <article class="blog-card">
-                    <img loading="lazy" src="images/Housekeeping-18.webp" alt="تنظيف المطبخ" class="blog-image">
+                    <img loading="lazy" src="images/Housekeeping-18.webp" alt="تنظيف المطبخ" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">15 يناير 2025</span>
@@ -314,7 +333,7 @@
                 </article>
 
                 <article class="blog-card">
-                    <img loading="lazy" src="images/Housekeeping-10.webp" alt="تنظيف Airbnb" class="blog-image">
+                    <img loading="lazy" src="images/Housekeeping-10.webp" alt="تنظيف Airbnb" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">10 يناير 2025</span>
@@ -327,7 +346,7 @@
                 </article>
 
                 <article class="blog-card">
-                    <img loading="lazy" src="images/Housekeeping-26.webp" alt="تنظيف الحمامات" class="blog-image">
+                    <img loading="lazy" src="images/Housekeeping-26.webp" alt="تنظيف الحمامات" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">5 يناير 2025</span>
@@ -340,7 +359,7 @@
                 </article>
 
                 <article class="blog-card">
-                    <img loading="lazy" src="images/Housekeeping-11.webp" alt="تنظيف غرف النوم" class="blog-image">
+                    <img loading="lazy" src="images/Housekeeping-11.webp" alt="تنظيف غرف النوم" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">28 ديسمبر 2024</span>
@@ -353,7 +372,7 @@
                 </article>
 
                 <article class="blog-card">
-                    <img loading="lazy" src="images/Housekeeping-15.webp" alt="منتجات التنظيف الصديقة للبيئة" class="blog-image">
+                    <img loading="lazy" src="images/Housekeeping-15.webp" alt="منتجات التنظيف الصديقة للبيئة" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">22 ديسمبر 2024</span>
@@ -366,7 +385,7 @@
                 </article>
 
                 <article class="blog-card">
-                    <img loading="lazy" src="images/ChaletMarina7-4.webp" alt="جدولة التنظيف" class="blog-image">
+                    <img loading="lazy" src="images/ChaletMarina7-4.webp" alt="جدولة التنظيف" class="blog-image" width="400" height="300">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-date">18 ديسمبر 2024</span>
@@ -485,83 +504,83 @@
             
             <div class="gallery-grid" id="galleryGrid">
                 <div class="gallery-item" data-image="images/gallery-8.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-8.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-8.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-9.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-9.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-9.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-10.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-10.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-10.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-12.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-12.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-12.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-13.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-13.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-13.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-14.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-14.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-14.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-15.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-15.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-15.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-16.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-16.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-16.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-17.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-17.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-17.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-18.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-18.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-18.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-19.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-19.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-19.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-20.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-20.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-20.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-21.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-21.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-21.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-22.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-22.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-22.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-23.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-23.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-23.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-24.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-24.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-24.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-25.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-25.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-25.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-26.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-26.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-26.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-27.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-27.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-27.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
                 <div class="gallery-item" data-image="images/gallery-28.webp" data-alt="فريق BOB Home Care">
-                    <img loading="lazy" src="images/gallery-28.webp" alt="فريق BOB Home Care">
+                    <img loading="lazy" src="images/gallery-28.webp" alt="فريق BOB Home Care" width="300" height="300">
                     <div class="gallery-overlay">🔍</div>
                 </div>
             </div>
@@ -630,12 +649,12 @@
                 <h2>احجز خدمتك الآن</h2>
                 <form id="bookingForm" class="booking-form">
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="الاسم الكامل" required>
-                        <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+                        <input type="text" name="name" placeholder="الاسم الكامل" aria-label="الاسم الكامل" required>
+                        <input type="tel" name="phone" placeholder="رقم الهاتف" aria-label="رقم الهاتف" required>
                     </div>
                     <div class="form-row">
-                        <input type="email" name="email" placeholder="البريد الإلكتروني">
-                        <select name="service" required>
+                        <input type="email" name="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني">
+                        <select name="service" aria-label="اختر نوع الخدمة" required>
                             <option value="" disabled selected>نوع الخدمة</option>
                             <option value="airbnb">تنظيف شقق Airbnb</option>
                             <option value="regular">التنظيف الدوري</option>
@@ -647,18 +666,18 @@
                     </div>
                     <div class="form-row">
                         <div class="date-input-container">
-                            <input type="date" name="date" id="bookingDate" min="" required>
+                            <input type="date" name="date" id="bookingDate" aria-label="اختر التاريخ" min="" required>
                             <span class="date-placeholder">اختر التاريخ</span>
                         </div>
-                        <select name="time" id="bookingTime" required>
+                        <select name="time" id="bookingTime" aria-label="اختر الوقت" required>
                             <option value="" disabled selected>الوقت المفضل</option>
                             <option value="morning">صباحاً (9-12)</option>
                             <option value="afternoon">بعد الظهر (12-5)</option>
                             <option value="evening">مساءً (5-8)</option>
                         </select>
                     </div>
-                    <input type="text" name="address" placeholder="العنوان" required>
-                    <textarea name="notes" placeholder="ملاحظات إضافية" rows="3"></textarea>
+                    <input type="text" name="address" placeholder="العنوان" aria-label="العنوان" required>
+                    <textarea name="notes" placeholder="ملاحظات إضافية" aria-label="ملاحظات إضافية" rows="3"></textarea>
                     <button type="submit" class="submit-btn">إرسال طلب الحجز</button>
                 </form>
                 
@@ -739,7 +758,7 @@
     <script defer src="script.min.js"></script>
     <script defer src="sw-register.min.js"></script>
     <script defer src="lazy-load.min.js"></script>
-    <script src="cookie-consent.js"></script>
+    <script defer src="cookie-consent.js"></script>
     <script>
         // Add event listener to reset button
         document.addEventListener('DOMContentLoaded', function() {
