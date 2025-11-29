@@ -288,6 +288,23 @@ body {
     animation: fadeInUp 1s ease-out 0.3s both;
 }
 
+.hero-brand {
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out 0.1s both;
+}
+
+.hero-brand h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 166, 106, 0.1);
+}
+
 .hero-text h2 {
     font-size: 3rem;
     background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
@@ -1289,6 +1306,11 @@ body {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    .hero-brand h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
     }
 
     .hero-text h2 {
