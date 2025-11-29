@@ -563,6 +563,7 @@ class ImageCarousel {
 
 function initTestimonialsCarousel() {
     const track = document.getElementById('testimonialsTrack');
+    const carousel = document.querySelector('.testimonials-carousel');
     const indicatorsContainer = document.getElementById('testimonialsIndicators');
     const prevBtn = document.querySelector('.testimonial-carousel-btn.prev');
     const nextBtn = document.querySelector('.testimonial-carousel-btn.next');
@@ -576,6 +577,11 @@ function initTestimonialsCarousel() {
     let touchStartX = 0;
     let touchEndX = 0;
     
+    // Check if mobile
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+    
     // Create indicators
     for (let i = 0; i < cardCount; i++) {
         const indicator = document.createElement('button');
@@ -586,8 +592,18 @@ function initTestimonialsCarousel() {
     }
     
     function updateCarousel() {
-        const offset = -currentIndex * 100;
-        track.style.transform = `translateX(${offset}%)`;
+        if (isMobile() && carousel) {
+            // On mobile, use scrollLeft for smooth native scrolling
+            const card = cards[currentIndex];
+            if (card) {
+                const scrollPosition = card.offsetLeft - carousel.offsetLeft;
+                carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+            }
+        } else {
+            // On desktop, use transform
+            const offset = -currentIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+        }
         
         // Update indicators
         document.querySelectorAll('.testimonial-indicator').forEach((ind, i) => {
@@ -663,6 +679,39 @@ function initTestimonialsCarousel() {
                 prevSlide();
             }
         }
+    }
+    
+    // Listen for scroll events on mobile to update indicators
+    if (carousel) {
+        let scrollTimeout;
+        carousel.addEventListener('scroll', () => {
+            if (!isMobile()) return;
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                // Find which card is most visible
+                const scrollLeft = carousel.scrollLeft;
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+                
+                cards.forEach((card, index) => {
+                    const cardLeft = card.offsetLeft - carousel.offsetLeft;
+                    const distance = Math.abs(scrollLeft - cardLeft);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+                
+                if (closestIndex !== currentIndex) {
+                    currentIndex = closestIndex;
+                    // Update indicators without scrolling
+                    document.querySelectorAll('.testimonial-indicator').forEach((ind, i) => {
+                        ind.classList.toggle('active', i === currentIndex);
+                    });
+                }
+            }, 100);
+        }, { passive: true });
     }
     
     // Start autoplay
