@@ -1126,6 +1126,14 @@ document.addEventListener('keydown', function(e) {
     // Close menu
     closeBtn.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
+      closeMenu();
+    });
+    
+    // Also handle touch events for better mobile support
+    closeBtn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       closeMenu();
     });
     
