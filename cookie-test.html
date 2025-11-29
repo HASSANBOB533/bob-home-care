@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent Banner Test</title>
+    <link rel="stylesheet" href="cookie-consent.css">
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1abc9c;
+            margin-bottom: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #1abc9c;
+            border-radius: 4px;
+        }
+        button {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #16a085;
+        }
+        .info {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+            color: #2e7d32;
+        }
+        .warning {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+            color: #e65100;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍪 Cookie Consent Banner Test</h1>
+        
+        <div class="test-section info">
+            <strong>ℹ️ Information:</strong>
+            <p>This page tests the cookie consent banner functionality. The banner should appear at the bottom of the screen on first load.</p>
+        </div>
+
+        <div class="test-section">
+            <h3>Test Controls</h3>
+            <button onclick="resetCookieConsent()">Reset Cookie Consent (Show Banner)</button>
+            <button onclick="checkConsent()">Check Current Consent</button>
+            <button onclick="clearAllData()">Clear All Data</button>
+        </div>
+
+        <div class="test-section warning">
+            <strong>⚠️ Note:</strong>
+            <p>If you've already accepted or rejected cookies, the banner won't show again until you click "Reset Cookie Consent".</p>
+        </div>
+
+        <div class="test-section">
+            <h3>Consent Status</h3>
+            <pre id="consent-status">Loading...</pre>
+        </div>
+
+        <div class="test-section">
+            <h3>How to Test:</h3>
+            <ol>
+                <li>Look for the cookie banner at the bottom of the page</li>
+                <li>Try clicking "Accept All" or "Reject All"</li>
+                <li>Refresh the page - the banner should NOT appear again</li>
+                <li>Click "Reset Cookie Consent" to test again</li>
+                <li>Check the consent status to see what's stored</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="cookie-consent.js"></script>
+    <script>
+        function resetCookieConsent() {
+            localStorage.removeItem('bob-home-care-cookie-consent');
+            location.reload();
+        }
+
+        function checkConsent() {
+            const consent = window.CookieConsent.getPreferences();
+            const statusEl = document.getElementById('consent-status');
+            if (consent) {
+                statusEl.textContent = JSON.stringify(consent, null, 2);
+            } else {
+                statusEl.textContent = 'No consent data found. Banner should appear on next page load.';
+            }
+        }
+
+        function clearAllData() {
+            localStorage.clear();
+            sessionStorage.clear();
+            location.reload();
+        }
+
+        // Check consent on page load
+        window.addEventListener('load', function() {
+            setTimeout(checkConsent, 500);
+        });
+    </script>
+</body>
+</html>
