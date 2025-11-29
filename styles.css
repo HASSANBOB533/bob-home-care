@@ -5019,3 +5019,83 @@ input[type="date"].has-value:before {
         padding: 15px 0 10px;
     }
 }
+
+
+/* ========== LAZY LOADING STYLES ========== */
+
+/* Placeholder for lazy loading images */
+img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 2s infinite;
+}
+
+/* Shimmer animation for loading state */
+@keyframes loading-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Fade-in animation when image loads */
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in when image is loaded */
+img.lazy-loaded {
+    animation: fadeInImage 0.3s ease-in-out;
+}
+
+/* Blur-up effect for images */
+img[data-src] {
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
+}
+
+img[data-src].lazy-loaded {
+    filter: blur(0);
+}
+
+/* Optimize image loading for better performance */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Gallery images optimization */
+.gallery-item img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-item img.lazy-loaded {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Blog images optimization */
+.blog-image {
+    transition: opacity 0.3s ease;
+}
+
+.blog-image.lazy-loaded {
+    opacity: 1;
+}
+
+/* Team photos optimization */
+.team-photo {
+    transition: opacity 0.3s ease;
+}
+
+.team-photo.lazy-loaded {
+    opacity: 1;
+}
