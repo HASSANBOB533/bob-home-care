@@ -703,8 +703,26 @@ function initDatePicker() {
     
     dateInput.setAttribute('max', maxDateStr);
     
-    // Ensure proper date formatting on mobile
+    // Handle placeholder visibility
+    const placeholder = dateInput.parentElement.querySelector('.date-placeholder');
+    
+    function updatePlaceholder() {
+        if (dateInput.value) {
+            dateInput.classList.add('has-value');
+            if (placeholder) placeholder.style.display = 'none';
+        } else {
+            dateInput.classList.remove('has-value');
+            if (placeholder) placeholder.style.display = 'block';
+        }
+    }
+    
+    // Initialize placeholder state
+    updatePlaceholder();
+    
+    // Update on change
     dateInput.addEventListener('change', function() {
+        updatePlaceholder();
+        
         if (this.value) {
             // Validate date
             const selectedDate = new Date(this.value);
@@ -714,9 +732,20 @@ function initDatePicker() {
             
             if (selectedTime < minTime || selectedTime > maxTime) {
                 this.value = '';
+                updatePlaceholder();
                 alert('يرجى اختيار تاريخ صحيح');
             }
         }
+    });
+    
+    // Also update on focus/blur for better UX
+    dateInput.addEventListener('focus', function() {
+        if (placeholder) placeholder.style.opacity = '0.5';
+    });
+    
+    dateInput.addEventListener('blur', function() {
+        updatePlaceholder();
+        if (placeholder && !this.value) placeholder.style.opacity = '1';
     });
 }
 
@@ -1002,53 +1031,65 @@ document.addEventListener('keydown', function(e) {
     // Show menu button on mobile
     function checkMobile() {
       if (window.innerWidth <= 768) {
-        menuBtn.style.display = 'block';
+        menuBtn.style.display = 'flex';
+        menuBtn.style.flexDirection = 'column';
+        menuBtn.style.gap = '5px';
       } else {
         menuBtn.style.display = 'none';
-        mobileMenu.style.right = '-100%';
+        mobileMenu.style.left = '-100%';
         overlay.style.display = 'none';
+        document.body.classList.remove('menu-open');
       }
     }
     
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    // Open menu function
+    function openMenu() {
+      mobileMenu.style.left = '0';
+      overlay.style.display = 'block';
+      document.body.classList.add('menu-open');
+      console.log('✓ Menu opened');
+    }
+    
+    // Close menu function
+    function closeMenu() {
+      mobileMenu.style.left = '-100%';
+      overlay.style.display = 'none';
+      document.body.classList.remove('menu-open');
+      console.log('✓ Menu closed');
+    }
+    
     // Toggle menu
     menuBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      mobileMenu.style.right = '0';
-      overlay.style.display = 'block';
-      console.log('✓ Menu opened');
+      openMenu();
     });
     
     // Close menu
     closeBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      mobileMenu.style.right = '-100%';
-      overlay.style.display = 'none';
-      console.log('✓ Menu closed');
+      closeMenu();
     });
     
     // Close on overlay click
     overlay.addEventListener('click', function() {
-      mobileMenu.style.right = '-100%';
-      overlay.style.display = 'none';
+      closeMenu();
     });
     
     // Close on link click
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', function() {
-        mobileMenu.style.right = '-100%';
-        overlay.style.display = 'none';
+        closeMenu();
       });
     });
     
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        mobileMenu.style.right = '-100%';
-        overlay.style.display = 'none';
+        closeMenu();
       }
     });
     console.log('✓ ULTRA-MINIMAL Mobile menu initialized successfully');
