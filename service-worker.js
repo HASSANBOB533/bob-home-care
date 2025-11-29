@@ -14,9 +14,9 @@ const API_CACHE = `api-${CACHE_VERSION}`;
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/lazy-load.js',
+  '/styles.min.css',
+  '/script.min.js',
+  '/lazy-load-advanced.min.js',
   '/blog-kitchen-cleaning.html',
   '/blog-bathroom-cleaning.html',
   '/blog-bedroom-cleaning.html',
@@ -27,10 +27,10 @@ const STATIC_ASSETS = [
 
 // Image assets to cache
 const IMAGE_ASSETS = [
-  '/images/ChatGPTImageNov24,2025,05_56_54PM.webp',
   '/images/bob-logo-new.webp',
   '/images/Housekeeping-11.webp',
-  '/images/GreenBG.webp'
+  '/images/GreenBG.webp',
+  '/images/social-preview.jpg'
 ];
 
 /**
