@@ -740,6 +740,58 @@ function initTestimonialsCarousel() {
     // Pause autoplay on hover
     track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
     track.addEventListener('mouseleave', startAutoplay);
+    
+    // Mouse drag support for desktop
+    let mouseStartX = 0;
+    let mouseEndX = 0;
+    let isDragging = false;
+    
+    track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        mouseStartX = e.clientX;
+        track.style.cursor = 'grabbing';
+        clearInterval(autoplayInterval);
+        e.preventDefault();
+    });
+    
+    track.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+    });
+    
+    track.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        mouseEndX = e.clientX;
+        track.style.cursor = 'grab';
+        handleMouseDrag();
+        startAutoplay();
+    });
+    
+    track.addEventListener('mouseleave', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        mouseEndX = e.clientX;
+        track.style.cursor = 'grab';
+        handleMouseDrag();
+        startAutoplay();
+    });
+    
+    function handleMouseDrag() {
+        const dragThreshold = 50;
+        const diff = mouseStartX - mouseEndX;
+        
+        if (Math.abs(diff) > dragThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+    
+    // Set initial cursor style
+    track.style.cursor = 'grab';
 }
 
 // Testimonials carousel initialization moved to main DOMContentLoaded handler
@@ -1175,5 +1227,20 @@ document.addEventListener('keydown', function(e) {
         closeMenu();
       }
     });
+    
+    // Handle language toggle in mobile menu
+    const langToggleMobileBtn = document.getElementById('langToggleMobile');
+    if (langToggleMobileBtn) {
+      langToggleMobileBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof toggleLanguage === 'function') {
+          toggleLanguage();
+        }
+      });
+      
+      // Ensure button is clickable with pointer-events
+      langToggleMobileBtn.style.pointerEvents = 'auto';
+    }
 
 })();
