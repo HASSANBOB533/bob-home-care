@@ -13,6 +13,22 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.min.css">
     <link rel="stylesheet" href="cookie-consent.css">
+    <style>
+        /* Override dark hero background with light version */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4f1e0 100%) !important;
+            color: #333 !important;
+        }
+        .hero-text h2 {
+            background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-text p {
+            color: #555 !important;
+        }
+    </style>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="manifest" href="manifest.json">
