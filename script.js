@@ -413,6 +413,16 @@ document.addEventListener('DOMContentLoaded', function() {
         langToggle.addEventListener('click', toggleLanguage);
     }
     
+    // Add event listener for mobile menu language toggle
+    const langToggleMobile = document.getElementById('langToggleMobile');
+    if (langToggleMobile) {
+        langToggleMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleLanguage();
+        });
+    }
+    
     // Initialize other features
     initSmoothScrolling();
     initFormSubmission();
