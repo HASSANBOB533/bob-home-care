@@ -12,6 +12,25 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/" />
   </url>
   
+  <!-- Service Pages - High Priority -->
+  <url>
+    <loc>https://bobhomecare.com/faq.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/faq.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/faq.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/sahel-cleaning.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/sahel-cleaning.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/sahel-cleaning.html" />
+  </url>
+  
   <!-- Blog Posts - High Priority -->
   <url>
     <loc>https://bobhomecare.com/blog-airbnb-cleaning.html</loc>
