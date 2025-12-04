@@ -127,3 +127,4 @@ Update the WhatsApp number in:
 
 For website updates or modifications, contact the development team.
 # Deployment trigger
+# Sitemap updated Thu Dec  4 07:32:17 EST 2025
