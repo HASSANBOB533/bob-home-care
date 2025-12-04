@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://bobhomecare.com/</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/" />
+  </url>
+  
+  <!-- Blog Posts - High Priority -->
+  <url>
+    <loc>https://bobhomecare.com/blog-airbnb-cleaning.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-airbnb-cleaning.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-airbnb-cleaning.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/blog-bathroom-cleaning.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-bathroom-cleaning.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-bathroom-cleaning.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/blog-bedroom-cleaning.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-bedroom-cleaning.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-bedroom-cleaning.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/blog-cleaning-schedule.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-cleaning-schedule.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-cleaning-schedule.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/blog-eco-products.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-eco-products.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-eco-products.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/blog-kitchen-cleaning.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/blog-kitchen-cleaning.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/blog-kitchen-cleaning.html" />
+  </url>
+  
+  <!-- Legal Pages - Medium Priority -->
+  <url>
+    <loc>https://bobhomecare.com/privacy-policy.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/privacy-policy.html" />
+  </url>
+  
+  <url>
+    <loc>https://bobhomecare.com/cookie-policy.html</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bobhomecare.com/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://bobhomecare.com/cookie-policy.html" />
+  </url>
+  
+</urlset>

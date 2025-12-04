@@ -1,0 +1,13 @@
+# robots.txt for bobhomecare.com
+
+User-agent: *
+Allow: /
+
+# Disallow test and debug pages
+Disallow: /cookie-test.html
+Disallow: /cookie-debug.html
+Disallow: /critical-css-template.html
+Disallow: /footer-template.html
+
+# Sitemap location
+Sitemap: https://bobhomecare.com/sitemap.xml
