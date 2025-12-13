@@ -1,13 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.bobhomecare.com"
-        }
-      ],
+      "source": "https://www.bobhomecare.com/:path*",
       "destination": "https://bobhomecare.com/:path*",
       "permanent": true
     }
