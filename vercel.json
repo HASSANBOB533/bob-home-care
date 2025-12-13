@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://www.bobhomecare.com/:path*",
-      "destination": "https://bobhomecare.com/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/sitemap.xml",
