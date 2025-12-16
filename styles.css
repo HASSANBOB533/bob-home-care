@@ -1768,7 +1768,7 @@ body {
 
 /* Footer Styling */
 .footer {
-    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
     color: white;
     padding: 40px 0 20px;
     margin-top: 40px;
@@ -1852,7 +1852,7 @@ body {
 
 /* Unified Footer Styling */
 .footer {
-    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
     color: white;
     padding: 25px 20px 15px;
     margin-top: 40px;
