@@ -212,23 +212,23 @@ body {
 }
 
 .book-btn {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-    color: white;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #333;
     text-decoration: none;
     padding: 8px 18px;
     border-radius: 20px;
     font-weight: bold;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
     animation: pulse 2s infinite;
     white-space: nowrap;
 }
 
 .book-btn:hover {
-    background: linear-gradient(45deg, #ff5252, #ff7979);
+    background: linear-gradient(135deg, #FFC700 0%, #FF9500 100%);
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
 }
 
 .lang-toggle {
