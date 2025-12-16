@@ -829,6 +829,12 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 166, 106, 0.2);
     background: #000;
+    min-height: 300px;
+}
+
+.video-wrapper.loaded {
+    height: auto;
+    padding-bottom: 0;
 }
 
 .video-wrapper iframe {
@@ -1762,7 +1768,7 @@ body {
 
 /* Footer Styling */
 .footer {
-    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
     color: white;
     padding: 40px 0 20px;
     margin-top: 40px;
@@ -1846,7 +1852,7 @@ body {
 
 /* Unified Footer Styling */
 .footer {
-    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
     color: white;
     padding: 25px 20px 15px;
     margin-top: 40px;
@@ -2079,7 +2085,7 @@ body {
 .social-icon svg {
     width: 20px;
     height: 20px;
-    fill: currentColor;
+    fill: white !important;
     transition: transform 0.3s ease;
 }
 
@@ -2098,68 +2104,6 @@ body {
     height: 18px;
 }
 
-/* Footer Styles */
-.footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    color: white;
-    padding: 30px 0 15px;
-    margin-top: 40px;
-    border-top: 3px solid #00a66a;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 20px;
-}
-
-.footer-section h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #00a66a;
-    font-weight: 700;
-}
-
-.footer-section h4 {
-    font-size: 1rem;
-    margin-bottom: 12px;
-    color: white;
-    font-weight: 600;
-}
-
-.footer-section p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    line-height: 1.6;
-    margin-bottom: 6px;
-}
-
-.footer-section a {
-    color: #00a66a;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.footer-section a:hover {
-    color: #00d084;
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 12px;
-    text-align: center;
-    opacity: 0.7;
-    font-size: 0.85rem;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
