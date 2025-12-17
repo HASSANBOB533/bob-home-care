@@ -1175,19 +1175,28 @@ body {
 
 /* Booking Section */
 .booking-section {
-    background: white;
-    padding: 50px;
+    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
+    padding: 60px 50px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 166, 106, 0.3);
     max-width: 900px;
     margin: 0 auto;
 }
 
 .booking-section h2 {
-    color: #00a66a;
+    color: white;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 2rem;
+    font-weight: bold;
+}
+
+.booking-section p {
+    color: white;
+    text-align: center;
+    opacity: 0.95;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
 .booking-form {
