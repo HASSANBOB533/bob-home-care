@@ -784,6 +784,14 @@
             
             <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 15px; margin-bottom: 24px; font-size: 0.85rem;">
             <style>
+                /* Desktop: Center the grid columns as a group while keeping RTL */
+                @media (min-width: 992px) {
+                    .footer-container > div:nth-child(2) {
+                        justify-content: center !important;
+                        grid-template-columns: repeat(6, minmax(140px, max-content)) !important;
+                        gap: 32px !important;
+                    }
+                }
                 @media (max-width: 1200px) {
                     .footer-container > div:nth-child(2) {
                         grid-template-columns: repeat(3, 1fr) !important;
