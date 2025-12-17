@@ -622,9 +622,10 @@ function initTestimonialsCarousel() {
                 carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
             }
         } else {
-            // On desktop, use transform
-            const offset = -currentIndex * 100;
-            track.style.transform = `translateX(${offset}%)`;
+            // On desktop, use transform with proper calculation
+            const carouselWidth = carousel.offsetWidth;
+            const offset = -currentIndex * carouselWidth;
+            track.style.transform = `translateX(${offset}px)`;
         }
         
         // Update indicators

@@ -2870,25 +2870,25 @@ body {
 
 .testimonials-carousel {
     flex: 1;
-    overflow: hidden; /* Hidden on desktop for transform animation */
+    overflow: hidden;
     border-radius: 15px;
     position: relative;
+    width: 100%;
 }
 
 .testimonials-carousel::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none;
 }
 
 .testimonials-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 0; /* No gap on desktop for clean slides */
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
 .testimonials-track .testimonial-card {
-    flex: 0 0 100%;
-    min-width: 100%;
-    scroll-snap-align: center;
+    flex-shrink: 0;
+    width: 100%;
     box-sizing: border-box;
 }
 
