@@ -134,6 +134,10 @@ function applyDirectionStyles() {
                 body.ltr .hero-text h2,
                 body.ltr .hero-text p {
                     color: white !important;
+                    background: none !important;
+                    -webkit-background-clip: unset !important;
+                    -webkit-text-fill-color: white !important;
+                    background-clip: unset !important;
                 }
             }
             body.ltr .nav-buttons {
