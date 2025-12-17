@@ -2588,6 +2588,13 @@ body {
     
     .video-features {
         font-size: 0.95rem;
+        padding-right: 0;
+        margin: 15px 0;
+    }
+    
+    .video-features li {
+        padding: 8px 0;
+        line-height: 1.6;
     }
 }
 
@@ -2602,7 +2609,14 @@ body {
     
     .video-features {
         font-size: 0.9rem;
-        gap: 8px;
+        gap: 6px;
+        padding-right: 0;
+        margin: 12px 0;
+    }
+    
+    .video-features li {
+        padding: 6px 0;
+        line-height: 1.5;
     }
 }
 
@@ -5163,8 +5177,15 @@ input[type="date"] {
         font-size: 1.2rem;
     }
     
+    .video-features {
+        padding-right: 0;
+        margin: 12px 0;
+    }
+    
     .video-features li {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        padding: 6px 0;
+        line-height: 1.5;
     }
     
     /* Footer compact */
