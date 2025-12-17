@@ -2085,18 +2085,18 @@ body {
 /* Responsive Footer */
 @media (max-width: 768px) {
     .footer {
-        padding: 30px 20px 15px;
-        margin-top: 30px;
+        padding: 25px 15px 12px;
+        margin-top: 25px;
     }
     
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 18px;
     }
     
     .footer-section {
         text-align: right;
-        padding: 0 10px;
+        padding: 0 5px;
     }
     
     /* Center BOB Home Care section on mobile */
@@ -2109,24 +2109,24 @@ body {
     }
     
     .footer-section h4 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
+        font-size: 1rem;
+        margin-bottom: 10px;
         font-weight: 600;
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-        padding-bottom: 8px;
+        padding-bottom: 6px;
     }
     
     .footer-section ul {
-        line-height: 2;
+        line-height: 1.8;
     }
     
     .footer-section ul li {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
     }
     
     .social-icons-footer {
         justify-content: flex-start;
-        gap: 12px;
+        gap: 10px;
     }
     
     .footer-section p {
@@ -4619,16 +4619,16 @@ section {
     
     /* Footer */
     .footer {
-        padding: 25px 15px 15px;
-        margin-top: 25px;
+        padding: 20px 12px 12px;
+        margin-top: 20px;
     }
     
     .footer-content {
-        gap: 22px;
+        gap: 16px;
     }
     
     .footer-section {
-        padding: 0 5px;
+        padding: 0 3px;
     }
 }
 
@@ -5116,22 +5116,22 @@ input[type="date"] {
     
     /* Footer compact */
     .footer {
-        padding: 25px 15px 15px;
-        margin-top: 25px;
+        padding: 20px 12px 12px;
+        margin-top: 20px;
     }
     
     .footer-content {
-        gap: 20px;
+        gap: 15px;
     }
     
     .footer-section h4 {
-        font-size: 1rem;
-        margin-bottom: 10px;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
     }
     
     .footer-section ul li {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
     }
 }
 
@@ -5174,8 +5174,12 @@ input[type="date"] {
     }
     
     .footer {
-        padding: 20px 12px 12px;
-        margin-top: 20px;
+        padding: 18px 10px 10px;
+        margin-top: 18px;
+    }
+    
+    .footer-content {
+        gap: 12px;
     }
     
     .footer-section {
@@ -5183,7 +5187,13 @@ input[type="date"] {
     }
     
     .footer-section h4 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .footer-section ul li {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
     }
 }
 
