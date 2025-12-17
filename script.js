@@ -189,7 +189,9 @@ function applyDirectionStyles() {
 }
 
 function updateContent() {
+    console.log('updateContent called, currentLang:', currentLang);
     const lang = translations[currentLang];
+    console.log('Translations:', lang);
     
     // Update hero section
     const heroH1 = document.querySelector('.hero-text h1');
@@ -199,6 +201,9 @@ function updateContent() {
     const btnPrimary = document.querySelector('.btn-primary');
     const btnSecondary = document.querySelector('.btn-secondary');
     const badges = document.querySelectorAll('.hero-badges .badge');
+    console.log('Found badges:', badges.length);
+    console.log('btnPrimary:', btnPrimary);
+    console.log('btnSecondary:', btnSecondary);
     
     // H1 stays as "BOB Home Care" in both languages
     if (heroTitle) heroTitle.textContent = lang.heroTitle;
