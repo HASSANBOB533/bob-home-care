@@ -612,7 +612,10 @@ function initTestimonialsCarousel() {
     }
     
     function updateCarousel() {
-        if (isMobile() && carousel) {
+        const mobile = isMobile();
+        console.log('updateCarousel called - isMobile:', mobile, 'currentIndex:', currentIndex);
+        
+        if (mobile && carousel) {
             // On mobile, use scrollLeft for smooth native scrolling
             const card = cards[currentIndex];
             if (card) {
@@ -622,6 +625,7 @@ function initTestimonialsCarousel() {
         } else {
             // On desktop, use transform
             const offset = -currentIndex * 100;
+            console.log('Desktop: setting transform to', offset + '%');
             track.style.transform = `translateX(${offset}%)`;
         }
         
@@ -633,6 +637,7 @@ function initTestimonialsCarousel() {
     
     function nextSlide() {
         currentIndex = (currentIndex + 1) % cardCount;
+        console.log('Auto-scrolling to slide:', currentIndex);
         updateCarousel();
         resetAutoplay();
     }
