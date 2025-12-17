@@ -2882,14 +2882,14 @@ body {
 .testimonials-track {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 20px;
-    width: 100%; /* Ensure proper width for desktop */
+    gap: 0; /* No gap on desktop for clean slides */
 }
 
 .testimonials-track .testimonial-card {
     flex: 0 0 100%;
     min-width: 100%;
     scroll-snap-align: center;
+    box-sizing: border-box;
 }
 
 .testimonials-indicators {
