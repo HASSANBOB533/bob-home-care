@@ -2870,13 +2870,9 @@ body {
 
 .testimonials-carousel {
     flex: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden; /* Hidden on desktop for transform animation */
     border-radius: 15px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    position: relative;
 }
 
 .testimonials-carousel::-webkit-scrollbar {
@@ -2887,7 +2883,7 @@ body {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     gap: 20px;
-    scroll-snap-type: x mandatory;
+    width: 100%; /* Ensure proper width for desktop */
 }
 
 .testimonials-track .testimonial-card {
@@ -4289,7 +4285,7 @@ section {
 
 @media (max-width: 768px) {
     .testimonials-carousel {
-        overflow-x: auto;
+        overflow-x: auto; /* Enable scrolling on mobile/tablet */
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
