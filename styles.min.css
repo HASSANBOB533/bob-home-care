@@ -2873,7 +2873,6 @@ body {
     border-radius: 15px;
     position: relative;
     width: 100%;
-    min-height: 250px;
 }
 
 .testimonials-carousel::-webkit-scrollbar {
@@ -2883,13 +2882,11 @@ body {
 .testimonials-track {
     position: relative;
     width: 100%;
-    min-height: 250px;
+    display: grid;
 }
 
 .testimonials-track .testimonial-card {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-area: 1 / 1;
     width: 100%;
     opacity: 0;
     visibility: hidden;
@@ -4308,7 +4305,6 @@ section {
     .testimonials-track {
         display: flex;
         position: static;
-        min-height: auto;
     }
     
     .testimonials-track .testimonial-card {
