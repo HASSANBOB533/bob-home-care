@@ -380,8 +380,8 @@ body {
 
 /* Secondary Button - Outlined */
 .btn-secondary {
-    background: transparent;
-    color: #00a66a;
+    background: #FFD700;
+    color: white;
     padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -389,14 +389,16 @@ body {
     font-size: 1.1rem;
     display: inline-block;
     transition: all 0.3s ease;
-    border: 2px solid #00a66a;
+    border: 2px solid #FFD700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 .btn-secondary:hover {
-    background: #00a66a;
+    background: #FFC700;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 166, 106, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    border-color: #FFC700;
 }
 
 /* Mobile Optimization */
