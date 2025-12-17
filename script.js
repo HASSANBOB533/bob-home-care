@@ -210,25 +210,28 @@ function updateContent() {
     if (heroSubtitle) heroSubtitle.textContent = lang.heroSubtitle;
     if (ctaButton) ctaButton.textContent = lang.ctaButton;
     
-    // Update ALL primary buttons
+    // Update ALL primary buttons using data attributes
     btnPrimaryAll.forEach(btn => {
-        btn.textContent = lang.btnPrimary;
-        console.log('Updated btnPrimary to:', lang.btnPrimary);
+        const text = btn.getAttribute('data-' + currentLang) || lang.btnPrimary;
+        btn.textContent = text;
+        console.log('Updated btnPrimary to:', text);
     });
     
-    // Update ALL secondary buttons
+    // Update ALL secondary buttons using data attributes
     btnSecondaryAll.forEach(btn => {
-        btn.textContent = lang.btnSecondary;
-        console.log('Updated btnSecondary to:', lang.btnSecondary);
+        const text = btn.getAttribute('data-' + currentLang) || lang.btnSecondary;
+        btn.textContent = text;
+        console.log('Updated btnSecondary to:', text);
     });
     
-    // Update badges
-    if (badges.length >= 3) {
-        badges[0].textContent = lang.badge1;
-        badges[1].textContent = lang.badge2;
-        badges[2].textContent = lang.badge3;
-        console.log('Updated badges to:', lang.badge1, lang.badge2, lang.badge3);
-    }
+    // Update badges using data attributes
+    badges.forEach((badge, index) => {
+        const text = badge.getAttribute('data-' + currentLang);
+        if (text) {
+            badge.textContent = text;
+            console.log('Updated badge', index, 'to:', text);
+        }
+    });
     
     // Update section titles
     const aboutTitle = document.querySelector('.about h2');
