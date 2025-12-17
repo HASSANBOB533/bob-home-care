@@ -291,6 +291,7 @@ body {
 .hero-brand {
     margin-bottom: 20px;
     animation: fadeInUp 1s ease-out 0.1s both;
+    text-align: center;
 }
 
 .hero-brand h1 {
