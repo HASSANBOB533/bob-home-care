@@ -2842,6 +2842,7 @@ body {
 }
 
 .testimonial-carousel-btn {
+    display: none; /* Hidden on all devices - auto-scroll only */
     background: linear-gradient(45deg, #00a66a, #00d084);
     color: white;
     border: none;
@@ -2849,7 +2850,6 @@ body {
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
