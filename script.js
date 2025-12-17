@@ -192,6 +192,7 @@ function updateContent() {
     const lang = translations[currentLang];
     
     // Update hero section
+    const heroH1 = document.querySelector('.hero-text h1');
     const heroTitle = document.querySelector('.hero-text h2');
     const heroSubtitle = document.querySelector('.hero-text p');
     const ctaButton = document.querySelector('.cta-button');
@@ -199,6 +200,7 @@ function updateContent() {
     const btnSecondary = document.querySelector('.btn-secondary');
     const badges = document.querySelectorAll('.hero-badges .badge');
     
+    // H1 stays as "BOB Home Care" in both languages
     if (heroTitle) heroTitle.textContent = lang.heroTitle;
     if (heroSubtitle) heroSubtitle.textContent = lang.heroSubtitle;
     if (ctaButton) ctaButton.textContent = lang.ctaButton;
