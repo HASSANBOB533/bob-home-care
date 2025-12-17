@@ -2220,7 +2220,7 @@ body {
 
 /* Social Media Icons */
 .social-icons-header {
-    display: flex;
+    display: none; /* Hidden on desktop and tablet - icons in footer only */
     gap: 12px;
     align-items: center;
     animation: fadeInUp 0.8s ease-out 0.4s both;
