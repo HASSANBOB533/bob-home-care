@@ -2082,89 +2082,90 @@ body {
     display: block;
 }
 
-/* Responsive Footer - Completely Redesigned for Mobile */
+/* Responsive Footer - Clean Single Column for Mobile */
 @media (max-width: 768px) {
     .footer {
-        padding: 20px 15px 10px;
+        padding: 25px 15px 15px;
         margin-top: 20px;
     }
     
     .footer-content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    /* BOB Home Care Section - Centered */
-    .footer-section:first-child {
+    /* All sections */
+    .footer-section {
         text-align: center;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0;
+    }
+    
+    /* BOB Home Care Section */
+    .footer-section:first-child {
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
     
     .footer-section:first-child h4 {
-        font-size: 1.2rem;
-        margin-bottom: 6px;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
         font-weight: 700;
-        border: none;
-        padding: 0;
     }
     
     .footer-section:first-child p {
-        font-size: 0.8rem;
-        opacity: 0.9;
-        margin: 4px 0 8px 0;
+        font-size: 0.85rem;
+        opacity: 0.95;
+        margin: 5px 0 10px 0;
+        line-height: 1.5;
     }
     
+    /* Social Icons in BOB Section */
     .footer-section:first-child .social-icons-footer {
+        display: flex;
         justify-content: center;
-        gap: 10px;
-        margin-top: 8px;
+        gap: 12px;
+        margin-top: 10px;
     }
     
-    /* Quick Links & Contact - 2 Column Grid */
-    .footer-section:nth-child(2),
-    .footer-section:nth-child(3) {
-        display: inline-block;
-        width: 48%;
-        vertical-align: top;
-        padding: 0 1%;
+    .footer-section:first-child .social-icons-footer .social-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
     }
     
-    .footer-section:nth-child(2) {
-        text-align: right;
+    .footer-section:first-child .social-icons-footer .social-icon:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
     }
     
-    .footer-section:nth-child(3) {
-        text-align: left;
-    }
-    
-    /* Hide 4th section (Follow Us) on mobile - already have social icons above */
-    .footer-section:nth-child(4) {
-        display: none;
-    }
-    
+    /* Other sections */
     .footer-section h4 {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
+        font-size: 1rem;
+        margin-bottom: 10px;
         font-weight: 600;
-        border: none;
-        padding: 0;
-        opacity: 0.9;
     }
     
     .footer-section ul {
-        line-height: 1.5;
+        line-height: 1.8;
         padding: 0;
+        list-style: none;
     }
     
     .footer-section ul li {
-        margin-bottom: 5px;
-        font-size: 0.8rem;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
     }
     
     .footer-section ul li a {
-        opacity: 0.85;
+        color: white;
+        text-decoration: none;
+        opacity: 0.9;
         transition: opacity 0.2s;
     }
     
@@ -2173,19 +2174,15 @@ body {
     }
     
     .footer-section p {
-        font-size: 0.8rem;
-        line-height: 1.5;
-        margin: 3px 0;
-        opacity: 0.85;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin: 5px 0;
+        opacity: 0.9;
     }
     
-    .social-icons-footer {
-        gap: 8px;
-    }
-    
-    .social-icons-footer .social-icon {
-        width: 32px;
-        height: 32px;
+    /* Hide duplicate social section (4th section) */
+    .footer-section:nth-child(4) {
+        display: none;
     }
 }
     
