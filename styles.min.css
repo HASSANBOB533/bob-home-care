@@ -212,7 +212,7 @@ body {
 }
 
 .book-btn {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    background: #FFD700;
     color: #333;
     text-decoration: none;
     padding: 8px 18px;
@@ -226,7 +226,7 @@ body {
 }
 
 .book-btn:hover {
-    background: linear-gradient(135deg, #FFC700 0%, #FF9500 100%);
+    background: #FFC700;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
 }
@@ -359,8 +359,8 @@ body {
 
 /* Primary Button - Solid Green */
 .btn-primary {
-    background: linear-gradient(135deg, #00a66a 0%, #00d084 100%);
-    color: white;
+    background: #FFD700;
+    color: #333;
     padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -374,8 +374,8 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 166, 106, 0.4);
-    background: linear-gradient(135deg, #00d084 0%, #00a66a 100%);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    background: #FFC700;
 }
 
 /* Secondary Button - Outlined */
