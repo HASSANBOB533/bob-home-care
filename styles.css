@@ -2214,7 +2214,8 @@ body {
 .floating-whatsapp svg {
     width: 32px;
     height: 32px;
-    fill: white;
+    fill: white !important;
+    color: white !important;
     transition: transform 0.3s ease;
 }
 
