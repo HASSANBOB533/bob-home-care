@@ -2577,11 +2577,12 @@ body {
 @media (max-width: 768px) {
     .video-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
     }
     
     .video-info {
         gap: 15px;
+        text-align: center;
     }
     
     .video-info h3 {
@@ -2591,7 +2592,9 @@ body {
     .video-features {
         font-size: 0.95rem;
         padding-right: 0;
-        margin: 15px 0;
+        margin: 15px auto;
+        text-align: right;
+        display: inline-block;
     }
     
     .video-features li {
@@ -2605,6 +2608,10 @@ body {
         gap: 20px;
     }
     
+    .video-info {
+        text-align: center;
+    }
+    
     .video-info h3 {
         font-size: 1.2rem;
     }
@@ -2613,7 +2620,9 @@ body {
         font-size: 0.9rem;
         gap: 6px;
         padding-right: 0;
-        margin: 12px 0;
+        margin: 12px auto;
+        text-align: right;
+        display: inline-block;
     }
     
     .video-features li {
