@@ -602,6 +602,11 @@ function initTestimonialsCarousel() {
         return window.innerWidth <= 768;
     }
     
+    // Initialize first card as active
+    if (cards.length > 0 && !isMobile()) {
+        cards[0].classList.add('active');
+    }
+    
     // Create indicators
     for (let i = 0; i < cardCount; i++) {
         const indicator = document.createElement('button');
@@ -622,10 +627,14 @@ function initTestimonialsCarousel() {
                 carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
             }
         } else {
-            // On desktop, use transform with proper calculation
-            const carouselWidth = carousel.offsetWidth;
-            const offset = -currentIndex * carouselWidth;
-            track.style.transform = `translateX(${offset}px)`;
+            // On desktop, use active class for fade effect
+            cards.forEach((card, index) => {
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
         }
         
         // Update indicators

@@ -2870,10 +2870,10 @@ body {
 
 .testimonials-carousel {
     flex: 1;
-    overflow: hidden;
     border-radius: 15px;
     position: relative;
     width: 100%;
+    min-height: 250px;
 }
 
 .testimonials-carousel::-webkit-scrollbar {
@@ -2881,15 +2881,26 @@ body {
 }
 
 .testimonials-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
+    position: relative;
+    width: 100%;
+    min-height: 250px;
 }
 
 .testimonials-track .testimonial-card {
-    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     box-sizing: border-box;
+}
+
+.testimonials-track .testimonial-card.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
 }
 
 .testimonials-indicators {
@@ -4285,13 +4296,27 @@ section {
 
 @media (max-width: 768px) {
     .testimonials-carousel {
-        overflow-x: auto; /* Enable scrolling on mobile/tablet */
+        overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: smooth;
+    }
+    
+    .testimonials-track {
+        display: flex;
+        position: static;
+        min-height: auto;
+    }
+    
+    .testimonials-track .testimonial-card {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        flex: 0 0 85%;
+        min-width: 280px;
     }
     
     .testimonials-carousel::-webkit-scrollbar {
