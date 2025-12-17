@@ -380,8 +380,8 @@ body {
 
 /* Secondary Button - Outlined */
 .btn-secondary {
-    background: #FFD700;
-    color: white;
+    background: white;
+    color: #FFD700;
     padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -394,11 +394,11 @@ body {
 }
 
 .btn-secondary:hover {
-    background: #FFC700;
+    background: #FFD700;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-    border-color: #FFC700;
+    border-color: #FFD700;
 }
 
 /* Mobile Optimization */
