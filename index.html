@@ -787,8 +787,9 @@
                 /* Desktop: Center the grid columns as a group while keeping RTL */
                 @media (min-width: 992px) {
                     .footer-container > div:nth-child(2) {
-                        grid-template-columns: repeat(6, 1fr) !important;
-                        gap: 24px !important;
+                        grid-template-columns: repeat(6, auto) !important;
+                        justify-content: center !important;
+                        gap: 40px !important;
                     }
                 }
                 @media (max-width: 1200px) {
