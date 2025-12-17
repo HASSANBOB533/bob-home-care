@@ -2098,6 +2098,15 @@ body {
         padding: 0 10px;
     }
     
+    /* Center BOB Home Care section on mobile */
+    .footer-section:first-child {
+        text-align: center;
+    }
+    
+    .footer-section:first-child .social-icons-footer {
+        justify-content: center;
+    }
+    
     .footer-section h4 {
         font-size: 1.1rem;
         margin-bottom: 12px;
