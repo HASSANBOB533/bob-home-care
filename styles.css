@@ -2591,10 +2591,10 @@ body {
     
     .video-features {
         font-size: 0.95rem;
-        padding-right: 0;
+        padding: 0;
         margin: 15px auto;
-        text-align: right;
-        display: inline-block;
+        text-align: center;
+        list-style-position: inside;
     }
     
     .video-features li {
@@ -2619,10 +2619,10 @@ body {
     .video-features {
         font-size: 0.9rem;
         gap: 6px;
-        padding-right: 0;
+        padding: 0;
         margin: 12px auto;
-        text-align: right;
-        display: inline-block;
+        text-align: center;
+        list-style-position: inside;
     }
     
     .video-features li {
