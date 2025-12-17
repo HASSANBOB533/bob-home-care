@@ -250,25 +250,46 @@
             </div>
         </div>
         
-        <!-- ULTRA-MINIMAL MOBILE MENU - GUARANTEED TO WORK -->
+        <!-- ENHANCED MOBILE MENU -->
         <!-- Menu Container -->
-        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 80%; height: 100vh; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); z-index: 100000; transition: right 0.3s ease; padding-top: 20px; display: flex; flex-direction: column;">
-          <!-- Close Button -->
-            <button id="closeBtn" aria-label="إغلاق القائمة" style="position: absolute; top: 20px; left: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10002; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
+        <div id="mobileMenu" style="position: fixed; right: -100%; top: 0; width: 85%; max-width: 320px; height: 100vh; background: linear-gradient(135deg, #00a66a 0%, #00d084 100%); z-index: 100000; transition: right 0.3s ease; display: flex; flex-direction: column; overflow-y: auto;">
+          <!-- Header Section -->
+          <div style="padding: 20px; background: rgba(0,0,0,0.1); position: relative;">
+            <button id="closeBtn" aria-label="إغلاق القائمة" style="position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 24px; cursor: pointer; z-index: 10002; padding: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;">×</button>
+            <h3 style="color: white; margin: 0; font-size: 1.3rem; font-weight: 700; text-align: right; padding-right: 5px;">BOB Home Care</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 0.85rem; text-align: right;">خدمات تنظيف احترافية</p>
+          </div>
           
-          <!-- Menu Links -->
-          <nav style="display: flex; flex-direction: column; gap: 0; padding-right: 0; padding-left: 0; margin-top: 40px; flex: 1; overflow-y: auto; min-height: 0;">
-            <a href="#home" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">الرئيسية</a>
-            <a href="#about" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">من نحن</a>
-            <a href="#services" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">خدماتنا</a>
-            <a href="#blog" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">المدونة</a>
-            <a href="#testimonials" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">آراء العملاء</a>
-            <a href="https://pricing.bobhomecare.com" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">اسعار خدمتنا</a>
-            <a href="https://book.bobhomecare.com" target="_blank" rel="noopener noreferrer" style="color: white; padding: 15px 20px; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">احجز الآن</a>
-          </nav>
+          <!-- Quick Links Section -->
+          <div style="padding: 15px 0;">
+            <h4 style="color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; padding: 0 20px 8px; margin: 0; letter-spacing: 1px;">روابط سريعة</h4>
+            <nav style="display: flex; flex-direction: column; gap: 0;">
+              <a href="#home" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">🏠</span> الرئيسية</a>
+              <a href="#about" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">ℹ️</span> من نحن</a>
+              <a href="#services" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">✨</span> خدماتنا</a>
+              <a href="https://pricing.bobhomecare.com" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">💰</span> اسعار خدمتنا</a>
+              <a href="#blog" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">📝</span> المدونة</a>
+              <a href="#testimonials" style="color: white; padding: 12px 20px; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span style="font-size: 1.1rem;">⭐</span> آراء العملاء</a>
+            </nav>
+          </div>
           
-          <!-- Language Toggle in Mobile Menu - Outside nav for guaranteed visibility -->
-            <button id="langToggleMobile" aria-label="تبديل اللغة" style="color: white; padding: 15px 20px; font-size: 16px; border: none; background: rgba(255,255,255,0.1); cursor: pointer; width: 100%; text-align: right; border-top: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; z-index: 10001; position: relative; transition: background 0.3s ease; margin: 0; font-family: inherit;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">EN / العربية</button>
+          <!-- Book Now Button -->
+          <div style="padding: 15px 20px;">
+            <a href="https://book.bobhomecare.com" target="_blank" rel="noopener noreferrer" style="display: block; background: white; color: #00a66a; padding: 14px 20px; text-decoration: none; font-size: 1rem; font-weight: 700; border-radius: 30px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'">احجز الآن 🚀</a>
+          </div>
+          
+          <!-- Contact Info Section -->
+          <div style="padding: 15px 20px; background: rgba(0,0,0,0.1); margin-top: auto;">
+            <h4 style="color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; padding: 0 0 10px; margin: 0; letter-spacing: 1px;">معلومات التواصل</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="tel:+201273518887" style="color: white; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'"><span style="font-size: 1rem;">📞</span> 01273518887</a>
+              <a href="mailto:CS@BOBHomeCare.com" style="color: white; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'"><span style="font-size: 1rem;">✉️</span> CS@BOBHomeCare.com</a>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.85rem; display: flex; align-items: center; gap: 8px;"><span style="font-size: 1rem;">🕒</span> يومياً: 9 ص - 10 م</div>
+            </div>
+          </div>
+          
+          <!-- Language Toggle -->
+          <button id="langToggleMobile" aria-label="تبديل اللغة" style="color: white; padding: 14px 20px; font-size: 0.9rem; border: none; background: rgba(0,0,0,0.15); cursor: pointer; width: 100%; text-align: center; border-top: 1px solid rgba(255,255,255,0.15); flex-shrink: 0; transition: background 0.3s ease; margin: 0; font-family: inherit; font-weight: 600;" onmouseover="this.style.background='rgba(0,0,0,0.25)'" onmouseout="this.style.background='rgba(0,0,0,0.15)'">🌐 EN / العربية</button>
         </div>
         
         <!-- Overlay Backdrop -->
