@@ -16,6 +16,11 @@ const translations = {
         heroTitle: 'خدمات التنظيف المنزلي بمعايير الضيافة العالمية',
         heroSubtitle: 'من فريق Best of Bedz المتخصص في الضيافة، نقدم خدمات تنظيف بجودة الفنادق الفاخرة',
         ctaButton: 'احصل على عرض سعر مجاني',
+        btnPrimary: 'احجز الآن',
+        btnSecondary: 'احصل على عرض سعر',
+        badge1: 'مرخص ومؤمن',
+        badge2: 'ضمان الجودة',
+        badge3: 'فريق محترف',
         
         // About Section
         aboutTitle: 'من نحن',
@@ -52,6 +57,11 @@ const translations = {
         heroTitle: 'Home Cleaning Services with International Hospitality Standards',
         heroSubtitle: 'From the Best of Bedz hospitality team, we provide luxury hotel-quality cleaning services',
         ctaButton: 'Get Free Quote',
+        btnPrimary: 'Book Now',
+        btnSecondary: 'Get Free Quote',
+        badge1: 'Licensed & Insured',
+        badge2: 'Quality Guaranteed',
+        badge3: 'Professional Team',
         
         // About Section
         aboutTitle: 'About Us',
@@ -185,10 +195,20 @@ function updateContent() {
     const heroTitle = document.querySelector('.hero-text h2');
     const heroSubtitle = document.querySelector('.hero-text p');
     const ctaButton = document.querySelector('.cta-button');
+    const btnPrimary = document.querySelector('.btn-primary');
+    const btnSecondary = document.querySelector('.btn-secondary');
+    const badges = document.querySelectorAll('.hero-badges .badge');
     
     if (heroTitle) heroTitle.textContent = lang.heroTitle;
     if (heroSubtitle) heroSubtitle.textContent = lang.heroSubtitle;
     if (ctaButton) ctaButton.textContent = lang.ctaButton;
+    if (btnPrimary) btnPrimary.textContent = lang.btnPrimary;
+    if (btnSecondary) btnSecondary.textContent = lang.btnSecondary;
+    if (badges.length >= 3) {
+        badges[0].textContent = lang.badge1;
+        badges[1].textContent = lang.badge2;
+        badges[2].textContent = lang.badge3;
+    }
     
     // Update section titles
     const aboutTitle = document.querySelector('.about h2');
