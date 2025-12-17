@@ -126,6 +126,16 @@ function applyDirectionStyles() {
             body.ltr .hero-text {
                 text-align: left;
             }
+            @media(max-width:768px) {
+                body.ltr .hero-text {
+                    text-align: center !important;
+                }
+                body.ltr .hero-text h1,
+                body.ltr .hero-text h2,
+                body.ltr .hero-text p {
+                    color: white !important;
+                }
+            }
             body.ltr .nav-buttons {
                 order: 2;
             }
