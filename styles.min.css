@@ -2085,23 +2085,24 @@ body {
 /* Responsive Footer */
 @media (max-width: 768px) {
     .footer {
-        padding: 25px 15px 12px;
-        margin-top: 25px;
+        padding: 20px 12px 10px;
+        margin-top: 20px;
     }
     
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 12px;
     }
     
     .footer-section {
         text-align: right;
-        padding: 0 5px;
+        padding: 0;
     }
     
     /* Center BOB Home Care section on mobile */
     .footer-section:first-child {
         text-align: center;
+        margin-bottom: 8px;
     }
     
     .footer-section:first-child .social-icons-footer {
@@ -2109,24 +2110,32 @@ body {
     }
     
     .footer-section h4 {
-        font-size: 1rem;
-        margin-bottom: 10px;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
         font-weight: 600;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 4px;
     }
     
     .footer-section ul {
-        line-height: 1.8;
+        line-height: 1.6;
     }
     
     .footer-section ul li {
-        margin-bottom: 6px;
+        margin-bottom: 4px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin: 3px 0;
     }
     
     .social-icons-footer {
         justify-content: flex-start;
-        gap: 10px;
+        gap: 8px;
+        margin-top: 6px;
     }
     
     .footer-section p {
@@ -4619,16 +4628,16 @@ section {
     
     /* Footer */
     .footer {
-        padding: 20px 12px 12px;
-        margin-top: 20px;
+        padding: 15px 10px 8px;
+        margin-top: 15px;
     }
     
     .footer-content {
-        gap: 16px;
+        gap: 10px;
     }
     
     .footer-section {
-        padding: 0 3px;
+        padding: 0;
     }
 }
 
@@ -5116,22 +5125,22 @@ input[type="date"] {
     
     /* Footer compact */
     .footer {
-        padding: 20px 12px 12px;
-        margin-top: 20px;
+        padding: 15px 10px 8px;
+        margin-top: 15px;
     }
     
     .footer-content {
-        gap: 15px;
+        gap: 10px;
     }
     
     .footer-section h4 {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
     }
     
     .footer-section ul li {
-        font-size: 0.85rem;
-        margin-bottom: 5px;
+        font-size: 0.8rem;
+        margin-bottom: 3px;
     }
 }
 
@@ -5174,26 +5183,37 @@ input[type="date"] {
     }
     
     .footer {
-        padding: 18px 10px 10px;
-        margin-top: 18px;
+        padding: 12px 8px 6px;
+        margin-top: 12px;
     }
     
     .footer-content {
-        gap: 12px;
+        gap: 8px;
     }
     
     .footer-section {
         padding: 0;
     }
     
+    .footer-section:first-child {
+        margin-bottom: 5px;
+    }
+    
     .footer-section h4 {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+        padding-bottom: 3px;
     }
     
     .footer-section ul li {
-        font-size: 0.8rem;
-        margin-bottom: 4px;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+    }
+    
+    .footer-section p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        margin: 2px 0;
     }
 }
 
