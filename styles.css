@@ -349,8 +349,8 @@ body {
 }
 
 .cta-button {
-    background: linear-gradient(45deg, #00a66a, #00d084);
-    color: white;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #333;
     padding: 18px 35px;
     border-radius: 35px;
     text-decoration: none;
@@ -358,7 +358,7 @@ body {
     font-size: 1.2rem;
     display: inline-block;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 166, 106, 0.4);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -379,9 +379,9 @@ body {
 }
 
 .cta-button:hover {
-    background: linear-gradient(45deg, #008a57, #00b870);
+    background: linear-gradient(135deg, #FFC700 0%, #FF9500 100%);
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 166, 106, 0.6);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
 }
 
 .hero-image {
