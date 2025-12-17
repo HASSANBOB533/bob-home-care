@@ -940,6 +940,133 @@
         });
     </script>
 <script src="tracking.js"></script>
+
+<!-- FINAL MOBILE OVERRIDE - Must load last to override all other CSS -->
+<style>
+@media (max-width: 768px) {
+    /* Force mobile hero to use team photo background for BOTH languages */
+    body.rtl .hero,
+    body.ltr .hero,
+    body .hero {
+        background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('images/Housekeeping-11.webp') center/cover no-repeat !important;
+        padding: 40px 20px !important;
+    }
+    
+    /* Hide hero image on mobile for BOTH languages */
+    body.rtl .hero-image,
+    body.ltr .hero-image,
+    body .hero-image {
+        display: none !important;
+    }
+    
+    /* Force single column layout */
+    body.rtl .hero-content,
+    body.ltr .hero-content,
+    body .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    /* Center all hero text for BOTH languages */
+    body.rtl .hero-text,
+    body.ltr .hero-text,
+    body .hero-text {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    /* Force WHITE text (no gradient) for BOTH languages */
+    body.rtl .hero-text h1,
+    body.rtl .hero-text h2,
+    body.rtl .hero-text p,
+    body.ltr .hero-text h1,
+    body.ltr .hero-text h2,
+    body.ltr .hero-text p,
+    body .hero-text h1,
+    body .hero-text h2,
+    body .hero-text p {
+        color: white !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: white !important;
+        background-clip: unset !important;
+    }
+    
+    body.rtl .hero-text h2,
+    body.ltr .hero-text h2,
+    body .hero-text h2 {
+        font-size: 24px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    body.rtl .hero-text p,
+    body.ltr .hero-text p,
+    body .hero-text p {
+        font-size: 14px !important;
+        opacity: 1 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Badge layout: 2 on first row, 1 centered on second */
+    body.rtl .hero-badges,
+    body.ltr .hero-badges,
+    body .hero-badges {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        max-width: 100% !important;
+        margin-bottom: 25px !important;
+    }
+    
+    body.rtl .hero-badges .badge,
+    body.ltr .hero-badges .badge,
+    body .hero-badges .badge {
+        min-width: auto !important;
+        flex: 0 1 auto !important;
+        background-color: rgba(255,255,255,0.2) !important;
+        color: white !important;
+    }
+    
+    /* Third badge takes full width and centers */
+    body.rtl .hero-badges .badge:nth-child(3),
+    body.ltr .hero-badges .badge:nth-child(3),
+    body .hero-badges .badge:nth-child(3) {
+        flex-basis: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    /* Full-width buttons with max-width */
+    body.rtl .hero-cta-buttons,
+    body.ltr .hero-cta-buttons,
+    body .hero-cta-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
+    
+    body.rtl .hero-cta-buttons .btn-primary,
+    body.rtl .hero-cta-buttons .btn-secondary,
+    body.ltr .hero-cta-buttons .btn-primary,
+    body.ltr .hero-cta-buttons .btn-secondary,
+    body .hero-cta-buttons .btn-primary,
+    body .hero-cta-buttons .btn-secondary {
+        width: 100% !important;
+        max-width: 360px !important;
+        text-align: center !important;
+        display: block !important;
+        padding: 12px 30px !important;
+    }
+}
+</style>
+
 </body>
 </html>
 
