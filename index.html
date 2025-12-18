@@ -285,24 +285,44 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-text">
+                <!-- Arabic Hero (shown when body.rtl) -->
+                <div class="hero-text hero-ar">
                     <div class="hero-brand">
                         <h1>BOB Home Care</h1>
                     </div>
-                    <h2 data-ar="خدمات التنظيف المنزلي بمعايير الضيافة العالمية" data-en="Professional Home Cleaning Services with International Hospitality Standards">خدمات التنظيف المنزلي بمعايير الضيافة العالمية</h2>
-                    <p data-ar="من فريق Best of Bedz المتخصص في الضيافة، نقدم خدمات تنظيف احترافية بجودة الفنادق الفاخرة" data-en="From the Best of Bedz hospitality team, we provide professional cleaning services with luxury hotel quality">من فريق Best of Bedz المتخصص في الضيافة، نقدم خدمات تنظيف احترافية بجودة الفنادق الفاخرة</p>
+                    <h2>خدمات التنظيف المنزلي بمعايير الضيافة العالمية</h2>
+                    <p>من فريق Best of Bedz المتخصص في الضيافة، نقدم خدمات تنظيف احترافية بجودة الفنادق الفاخرة</p>
                     <div class="hero-badges">
-                        <span class="badge" data-ar="مرخص ومؤمن" data-en="Licensed & Insured">مرخص ومؤمن</span>
-                        <span class="badge" data-ar="ضمان الجودة" data-en="Quality Guaranteed">ضمان الجودة</span>
-                        <span class="badge" data-ar="فريق محترف" data-en="Professional Team">فريق محترف</span>
+                        <span class="badge">مرخص ومؤمن</span>
+                        <span class="badge">ضمان الجودة</span>
+                        <span class="badge">فريق محترف</span>
                     </div>
                     <div class="hero-cta-buttons">
-                        <a href="https://book.bobhomecare.com" class="btn-primary" data-ar="احجز الآن" data-en="Book Now">احجز الآن</a>
-                        <a href="https://pricing.bobhomecare.com" class="btn-secondary" data-ar="احصل على عرض سعر" data-en="Get Free Quote">احصل على عرض سعر</a>
+                        <a href="https://book.bobhomecare.com" class="btn-primary">احجز الآن</a>
+                        <a href="https://pricing.bobhomecare.com" class="btn-secondary">احصل على عرض سعر</a>
                     </div>
                 </div>
+                
+                <!-- English Hero (shown when body.ltr) -->
+                <div class="hero-text hero-en">
+                    <div class="hero-brand">
+                        <h1>BOB Home Care</h1>
+                    </div>
+                    <h2>Professional Home Cleaning Services with International Hospitality Standards</h2>
+                    <p>From the Best of Bedz hospitality team, we provide professional cleaning services with luxury hotel quality</p>
+                    <div class="hero-badges">
+                        <span class="badge">Licensed & Insured</span>
+                        <span class="badge">Quality Guaranteed</span>
+                        <span class="badge">Professional Team</span>
+                    </div>
+                    <div class="hero-cta-buttons">
+                        <a href="https://book.bobhomecare.com" class="btn-primary">Book Now</a>
+                        <a href="https://pricing.bobhomecare.com" class="btn-secondary">Get Free Quote</a>
+                    </div>
+                </div>
+                
                 <div class="hero-image">
-                    <img src="images/Housekeeping-11.webp" alt="فريق BOB Home Care" class="team-photo" width="600" height="400" fetchpriority="high">
+                    <img src="images/Housekeeping-11.webp" alt="BOB Home Care Team" class="team-photo" width="600" height="400" fetchpriority="high">
                 </div>
             </div>
         </div>
@@ -940,6 +960,27 @@
         });
     </script>
 <script src="tracking.js"></script>
+
+<!-- DUAL LANGUAGE HERO SHOW/HIDE -->
+<style>
+/* Show/Hide hero sections based on language */
+body.rtl .hero-en {
+    display: none !important;
+}
+
+body.ltr .hero-ar {
+    display: none !important;
+}
+
+/* Default: show Arabic, hide English */
+.hero-en {
+    display: none;
+}
+
+.hero-ar {
+    display: block;
+}
+</style>
 
 <!-- DESKTOP HERO PROFESSIONAL REDESIGN -->
 <style>
