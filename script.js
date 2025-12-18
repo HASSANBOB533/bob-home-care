@@ -206,8 +206,21 @@ function updateContent() {
     console.log('Found btnSecondary:', btnSecondaryAll.length);
     
     // H1 stays as "BOB Home Care" in both languages
-    if (heroTitle) heroTitle.textContent = lang.heroTitle;
-    if (heroSubtitle) heroSubtitle.textContent = lang.heroSubtitle;
+    // Update h2 and p using data attributes
+    if (heroTitle) {
+        const titleText = heroTitle.getAttribute('data-' + currentLang);
+        if (titleText) {
+            heroTitle.textContent = titleText;
+            console.log('Updated hero h2 to:', titleText);
+        }
+    }
+    if (heroSubtitle) {
+        const subtitleText = heroSubtitle.getAttribute('data-' + currentLang);
+        if (subtitleText) {
+            heroSubtitle.textContent = subtitleText;
+            console.log('Updated hero p to:', subtitleText);
+        }
+    }
     if (ctaButton) ctaButton.textContent = lang.ctaButton;
     
     // Update ALL primary buttons using data attributes
