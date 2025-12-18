@@ -1064,10 +1064,23 @@
         padding: 12px 30px !important;
     }
     
-    /* Adjust video height on mobile to remove black area */
+    /* Adjust video wrapper and iframe on mobile to remove black area */
+    .video-wrapper {
+        padding-bottom: 0 !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
     .video-wrapper iframe {
+        position: relative !important;
         height: 250px !important;
         max-height: 250px !important;
+    }
+    
+    .video-wrapper img.video-thumbnail {
+        position: relative !important;
+        height: 250px !important;
+        object-fit: cover !important;
     }
 }
 </style>
