@@ -237,14 +237,37 @@ function updateContent() {
         console.log('Updated btnSecondary to:', text);
     });
     
-    // Update badges using data attributes
-    badges.forEach((badge, index) => {
-        const text = badge.getAttribute('data-' + currentLang);
-        if (text) {
-            badge.textContent = text;
-            console.log('Updated badge', index, 'to:', text);
-        }
-    });
+    // Update badges using data attributes - try multiple times to ensure they're found
+    function updateBadgesAndButtons() {
+        // Try multiple selectors for badges
+        const badges = document.querySelectorAll('.hero-badges .badge, .badge[data-ar], span.badge');
+        console.log('Attempting to update badges, found:', badges.length);
+        badges.forEach((badge, index) => {
+            const text = badge.getAttribute('data-' + currentLang);
+            if (text) {
+                badge.textContent = text;
+                console.log('Updated badge', index, 'to:', text);
+            }
+        });
+        
+        // Try multiple selectors for buttons
+        const allButtons = document.querySelectorAll('a.btn-primary, a.btn-secondary, .btn-primary, .btn-secondary, a[data-ar]');
+        console.log('Attempting to update buttons, found:', allButtons.length);
+        allButtons.forEach((btn, index) => {
+            const text = btn.getAttribute('data-' + currentLang);
+            if (text) {
+                btn.textContent = text;
+                console.log('Updated button', index, 'to:', text);
+            }
+        });
+    }
+    
+    // Run immediately
+    updateBadgesAndButtons();
+    
+    // Run again after a short delay to catch any dynamically loaded elements
+    setTimeout(updateBadgesAndButtons, 100);
+    setTimeout(updateBadgesAndButtons, 500);
     
     // Update section titles
     const aboutTitle = document.querySelector('.about h2');
